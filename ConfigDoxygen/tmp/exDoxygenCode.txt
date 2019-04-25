@@ -1,0 +1,20 @@
+        /// <summary>
+        /// A search engine.
+        /// </summary>
+        class Engine {
+            /// <summary>
+            /// The Search method takes a series of parameters to specify the search criterion
+            /// and returns a dataset containing the result set.
+            /// </summary>
+            /// <param name="connectionString">the connection string to connect to the
+            /// database holding the content to search</param>
+            /// <param name="maxRows">The maximum number of rows to
+            /// return in the result set</param>
+            /// <param name="searchString">The text that we are searching for</param>
+            /// <returns>A DataSet instance containing the matching rows. It contains a maximum
+            /// number of rows specified by the maxRows parameter</returns>
+            public DataSet Search(string connectionString, int maxRows, int searchString) {
+                DataSet ds = new DataSet();
+                return ds;
+            }
+        }

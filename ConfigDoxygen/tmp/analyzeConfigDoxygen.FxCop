@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded, Good, Noise" NewOnly="False" />
+   <Report Status="Active, Good, Noise" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="it-IT" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>C:/TEST/</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/../bin/Release/ConfigDoxygen.exe" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Targets>
+   <Target Name="$(ProjectDir)/../bin/Release/ConfigDoxygen.exe">
+    <Modules>
+     <Module Name="configdoxygen.exe">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2018-08-08 12:21:44Z">
+        <Issue Name="NoStrongName">
+         <Item>'ConfigDoxygen.exe'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="ConfigDoxygen">
+        <Types>
+         <Type Name="FileUtils">
+          <Members>
+           <Member Name="#OpenFolder(System.String&amp;)">
+            <Messages>
+             <Message Id="0#" TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'selectedFolder'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OpenTextFile(System.String[]&amp;,System.String&amp;,System.Int32&amp;)">
+            <Messages>
+             <Message Id="0#" TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'textData'</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'fileName'</Item>
+              </Issue>
+             </Message>
+             <Message Id="2#" TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'size'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SavingConfFile(System.String,System.Collections.Generic.Dictionary`2&lt;System.String,ConfigDoxygen.DefinitionTag&gt;&amp;)">
+            <Messages>
+             <Message Id="1#" TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045" Created="2018-08-08 13:04:50Z">
+              <Issue Level="CriticalWarning">
+               <Item>'dict'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FrmMain">
+          <Members>
+           <Member Name="#CheckDataIntegrity(System.String,System.String)">
+            <Messages>
+             <Message Id="Value" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2018-08-08 12:33:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'Value'</Item>
+               <Item>'FrmMain.CheckDataIntegrity(string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FillCombo(System.Windows.Forms.DataGridViewComboBoxCell&amp;,System.String,System.String)">
+            <Messages>
+             <Message Id="Value" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2018-08-08 12:33:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'Value'</Item>
+               <Item>'FrmMain.FillCombo(ref DataGridViewComboBoxCell, string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Form1_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <Messages>
+             <Message Id="ConfigDoxygen.NativeMethods.SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Created="2018-08-08 13:31:08Z">
+              <Issue Name="HResultOrErrorCode">
+               <Item>'FrmMain.Form1_MouseDown(object, MouseEventArgs)'</Item>
+               <Item>'NativeMethods.SendMessage(IntPtr, int, int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetArrayStringValuesByRange(System.Int32,System.Int32)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2018-08-08 12:33:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'FrmMain.GetArrayStringValuesByRange(int, int)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2018-08-08 12:33:16Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'int.ToString()'</Item>
+               <Item>'FrmMain.GetArrayStringValuesByRange(int, int)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetQuery(System.String,System.Collections.Generic.Dictionary`2&lt;System.String,ConfigDoxygen.DefinitionTag&gt;)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2018-08-08 13:04:50Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'FrmMain.GetQuery(string, Dictionary&lt;string, DefinitionTag&gt;)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetValueXTag(System.String,System.Collections.Generic.Dictionary`2&lt;System.String,ConfigDoxygen.DefinitionTag&gt;)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2018-08-08 13:04:50Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'FrmMain.GetValueXTag(string, Dictionary&lt;string, DefinitionTag&gt;)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IterateOverList(System.Collections.Generic.List`1&lt;System.String&gt;,System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2018-08-08 12:33:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'FrmMain.IterateOverList(List&lt;string&gt;, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ObjectToData(System.Object)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2018-08-08 12:33:16Z">
+              <Issue>
+               <Item>'FrmMain.ObjectToData(object)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="obj" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Created="2018-08-08 12:33:16Z">
+              <Issue Name="LanguageIndependentMemberParameter">
+               <Item>'FrmMain.ObjectToData(object)'</Item>
+               <Item>obj</Item>
+               <Item>'objValue'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Created="2018-08-08 12:33:16Z">
+              <Issue>
+               <Item>DataTable</Item>
+               <Item>'FrmMain.ObjectToData(object)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="SpecifyMessageBoxOptions" Category="Microsoft.Globalization" CheckId="CA1300" Created="2018-08-08 12:33:16Z">
+              <Issue>
+               <Item>'FrmMain.ObjectToData(object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SetDataGridView(System.Collections.Generic.Dictionary`2&lt;System.String,ConfigDoxygen.DefinitionTag&gt;)">
+            <Messages>
+             <Message Id="DictionaryDataSource" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2018-08-08 13:04:50Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'DictionaryDataSource'</Item>
+               <Item>'FrmMain.SetDataGridView(Dictionary&lt;string, DefinitionTag&gt;)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Created="2018-08-08 13:04:50Z">
+              <Issue>
+               <Item>DataTable</Item>
+               <Item>'FrmMain.SetDataGridView(Dictionary&lt;string, DefinitionTag&gt;)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2018-08-08 13:04:50Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'int.ToString()'</Item>
+               <Item>'FrmMain.SetDataGridView(Dictionary&lt;string, DefinitionTag&gt;)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SplitTextDataDescription(System.String[])">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2018-08-08 12:33:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'FrmMain.SplitTextDataDescription(string[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#UpdateCustomValue(System.String,System.String,System.String,System.Collections.Generic.Dictionary`2&lt;System.String,ConfigDoxygen.DefinitionTag&gt;&amp;)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2018-08-08 13:04:50Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'FrmMain.UpdateCustomValue(string, string, string, ref Dictionary&lt;string, DefinitionTag&gt;)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="General">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2018-08-08 12:21:44Z">
+            <Issue Name="CSharp2_0">
+             <Item>'General'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="NativeMethods">
+          <Members>
+           <Member Name="#ReleaseCapture()">
+            <Messages>
+             <Message TypeName="MarkBooleanPInvokeArgumentsWithMarshalAs" Category="Microsoft.Interoperability" CheckId="CA1414" Created="2018-08-08 13:31:08Z">
+              <Issue Name="Return">
+               <Item>'NativeMethods.ReleaseCapture()'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Created="2018-08-08 13:31:08Z">
+              <Issue>
+               <Item>'NativeMethods.ReleaseCapture()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="Msg" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2018-08-08 13:31:08Z">
+              <Issue Name="MemberParameter">
+               <Item>'NativeMethods.SendMessage(IntPtr, int, int, int)'</Item>
+               <Item>Msg</Item>
+               <Item>'Msg'</Item>
+               <Item>msg</Item>
+              </Issue>
+             </Message>
+             <Message Id="2" TypeName="PInvokeDeclarationsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1901" Created="2018-08-08 13:31:08Z" FixCategory="Breaking">
+              <Issue Name="Parameter">
+               <Item>'wParam'</Item>
+               <Item>'NativeMethods.SendMessage(IntPtr, int, int, int)'</Item>
+               <Item>4</Item>
+               <Item>64-bit</Item>
+               <Item>8</Item>
+               <Item>'int'</Item>
+              </Issue>
+             </Message>
+             <Message Id="3" TypeName="PInvokeDeclarationsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1901" Created="2018-08-08 13:31:08Z" FixCategory="Breaking">
+              <Issue Name="Parameter">
+               <Item>'lParam'</Item>
+               <Item>'NativeMethods.SendMessage(IntPtr, int, int, int)'</Item>
+               <Item>4</Item>
+               <Item>64-bit</Item>
+               <Item>8</Item>
+               <Item>'int'</Item>
+              </Issue>
+             </Message>
+             <Message Id="return" TypeName="PInvokeDeclarationsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1901" Created="2018-08-08 13:31:08Z" FixCategory="Breaking">
+              <Issue Name="Return">
+               <Item>'NativeMethods.SendMessage(IntPtr, int, int, int)'</Item>
+               <Item>4</Item>
+               <Item>64-bit</Item>
+               <Item>8</Item>
+               <Item>'int'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Created="2018-08-08 13:31:08Z">
+              <Issue>
+               <Item>'NativeMethods.SendMessage(IntPtr, int, int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="StringExtensions">
+          <Members>
+           <Member Name="#Mid(System.String,System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="a" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2018-08-08 12:21:44Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.Mid(string, int, int)'</Item>
+               <Item>'a'</Item>
+              </Issue>
+             </Message>
+             <Message Id="b" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2018-08-08 12:21:44Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.Mid(string, int, int)'</Item>
+               <Item>'b'</Item>
+              </Issue>
+             </Message>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2018-08-08 12:21:44Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.Mid(string, int, int)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+             </Message>
+             <Message Id="a-1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>a-1</Item>
+               <Item>'StringExtensions.Mid(string, int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="StringUtils">
+          <Members>
+           <Member Name="#BytesToString(System.Int64)">
+            <Messages>
+             <Message Id="byte" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Created="2018-08-08 12:21:44Z">
+              <Issue Name="LanguageIndependentMemberParameter">
+               <Item>'StringUtils.BytesToString(long)'</Item>
+               <Item>byte</Item>
+               <Item>'byteCount'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Double.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2018-08-08 12:21:44Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'double.ToString()'</Item>
+               <Item>'StringUtils.BytesToString(long)'</Item>
+               <Item>'double.ToString(IFormatProvider)'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Trivia">
+          <Members>
+           <Member Name="#SetListsInForm(System.Collections.Generic.List`1&lt;System.String&gt;&amp;,System.Collections.Generic.List`1&lt;System.String&gt;&amp;,System.Collections.Generic.List`1&lt;System.String&gt;&amp;,System.Collections.Generic.List`1&lt;System.String&gt;&amp;)">
+            <Messages>
+             <Message Id="0#" TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045" Created="2018-08-08 12:21:44Z">
+              <Issue Level="CriticalWarning">
+               <Item>'ls1'</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045" Created="2018-08-08 12:21:44Z">
+              <Issue Level="CriticalWarning">
+               <Item>'ls2'</Item>
+              </Issue>
+             </Message>
+             <Message Id="2#" TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045" Created="2018-08-08 12:21:44Z">
+              <Issue Level="CriticalWarning">
+               <Item>'ls3'</Item>
+              </Issue>
+             </Message>
+             <Message Id="3#" TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045" Created="2018-08-08 12:21:44Z">
+              <Issue Level="CriticalWarning">
+               <Item>'ls4'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="ReplaceRepetitiveArgumentsWithParamsArray" Category="Microsoft.Design" CheckId="CA1025" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'Trivia.SetListsInForm(ref List&lt;string&gt;, ref List&lt;string&gt;, ref List&lt;string&gt;, ref List&lt;string&gt;)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="InputBoxSample">
+        <Types>
+         <Type Name="InputBox">
+          <Members>
+           <Member Name="#buttonCancel">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBox.buttonCancel'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#buttonOK">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBox.buttonOK'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#errorProviderText">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBox.errorProviderText'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#labelPrompt">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBox.labelPrompt'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#textBoxText">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBox.textBoxText'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="InputBoxResult">
+          <Members>
+           <Member Name="#OK">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBoxResult.OK'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Text">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBoxResult.Text'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="InputBoxValidatingArgs">
+          <Members>
+           <Member Name="#Cancel">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBoxValidatingArgs.Cancel'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Message">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBoxValidatingArgs.Message'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Text">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2018-08-08 12:21:44Z">
+              <Issue>
+               <Item>'InputBoxValidatingArgs.Text'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="InputBoxValidatingHandler">
+          <Messages>
+           <Message TypeName="UseGenericEventHandlerInstances" Category="Microsoft.Design" CheckId="CA1003" Created="2018-08-08 12:21:44Z">
+            <Issue>
+             <Item>'InputBoxValidatingHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+      <Resources>
+       <Resource Name="ConfigDoxygen.Properties.Resources.resources">
+        <Messages>
+         <Message Id="Doxyfile" TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703" Created="2018-08-08 13:12:16Z">
+          <Issue Name="StringResource">
+           <Item>'ConfigDoxygen.Properties.Resources.resx'</Item>
+           <Item>header</Item>
+           <Item>Doxyfile</Item>
+           <Item># Doxyfile 1.8.8&#xD;&#xA;&#xD;&#xA;# This file describes the settings to be used by the documentation system&#xD;&#xA;# doxygen (www.doxygen.org) for a project.&#xD;&#xA;#&#xD;&#xA;# All text after a double hash (##) is considered a comment and is placed in&#xD;&#xA;# front of the TAG it is preceding.&#xD;&#xA;#&#xD;&#xA;# All text after a single hash (#) is co...</Item>
+          </Issue>
+         </Message>
+         <Message Id="doxygen" TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703" Created="2018-08-08 13:12:16Z">
+          <Issue Name="StringResource">
+           <Item>'ConfigDoxygen.Properties.Resources.resx'</Item>
+           <Item>header</Item>
+           <Item>doxygen</Item>
+           <Item># Doxyfile 1.8.8&#xD;&#xA;&#xD;&#xA;# This file describes the settings to be used by the documentation system&#xD;&#xA;# doxygen (www.doxygen.org) for a project.&#xD;&#xA;#&#xD;&#xA;# All text after a double hash (##) is considered a comment and is placed in&#xD;&#xA;# front of the TAG it is preceding.&#xD;&#xA;#&#xD;&#xA;# All text after a single hash (#) is co...</Item>
+          </Issue>
+          <Issue Name="StringResource">
+           <Item>'ConfigDoxygen.Properties.Resources.resx'</Item>
+           <Item>header</Item>
+           <Item>doxygen</Item>
+           <Item># Doxyfile 1.8.8&#xD;&#xA;&#xD;&#xA;# This file describes the settings to be used by the documentation system&#xD;&#xA;# doxygen (www.doxygen.org) for a project.&#xD;&#xA;#&#xD;&#xA;# All text after a double hash (##) is considered a comment and is placed in&#xD;&#xA;# front of the TAG it is preceding.&#xD;&#xA;#&#xD;&#xA;# All text after a single hash (#) is co...</Item>
+          </Issue>
+         </Message>
+        </Messages>
+       </Resource>
+      </Resources>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidOutParameters" Category="Microsoft.Design" CheckId="CA1021">
+    <Resolution Name="Default">Consider a design that does not require that {0} be an out parameter.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806">
+    <Resolution Name="HResultOrErrorCode">{0} calls {1} but does not use the HRESULT or error code that the method returns. This could lead to unexpected behavior in error conditions or low-resource situations. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotPassTypesByReference" Category="Microsoft.Design" CheckId="CA1045">
+    <Resolution Name="Default">Consider a design that does not require that {0} be a reference parameter.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="MemberParameterMoreMeaningfulName">In method {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+    <Resolution Name="LanguageIndependentMemberParameter">In member {0}, consider replacing the data type identifier '{1}' in parameter name {2} with a more generic term, such as 'value'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkBooleanPInvokeArgumentsWithMarshalAs" Category="Microsoft.Interoperability" CheckId="CA1414">
+    <Resolution Name="Return">Add the MarshalAsAttribute to the return type of P/Invoke {0}. If the corresponding unmanaged return type is a 4-byte Win32 'BOOL', use MarshalAs(UnmanagedType.Bool). For a 1-byte C++ 'bool', use MarshalAs(UnmanagedType.U1).</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233">
+    <Resolution Name="Default">Correct the potential overflow in the operation '{0}' in {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="PInvokeDeclarationsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1901">
+    <Resolution Name="Parameter">As it is declared in your code, parameter {0} of P/Invoke {1} will be {2} bytes wide on {3} platforms. This is not correct, as the actual native declaration of this API indicates it should be {4} bytes wide on {3} platforms. Consult the MSDN Platform SDK documentation for help determining what data type should be used instead of {5}.</Resolution>
+    <Resolution Name="Return">As it is declared in your code, the return type of P/Invoke {0} will be {1} bytes wide on {2} platforms. This is not correct, as the actual native declaration of this API indicates it should be {3} bytes wide on {2} platforms. Consult the MSDN Platform SDK documentation for help determining what data type should be used instead of {4}.</Resolution>
+   </Rule>
+   <Rule TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401">
+    <Resolution Name="Default">Change the accessibility of P/Invoke {0} so that it is no longer visible from outside its assembly.</Resolution>
+   </Rule>
+   <Rule TypeName="ReplaceRepetitiveArgumentsWithParamsArray" Category="Microsoft.Design" CheckId="CA1025">
+    <Resolution Name="Default">Consider implementing a version of {0} that accepts a parameter array argument.</Resolution>
+   </Rule>
+   <Rule TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703">
+    <Resolution Name="StringResource">In resource {0}, referenced by name '{1}', correct the spelling of '{2}' in string value '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306">
+    <Resolution Name="Default">Be sure to set the {0} Locale property wherever {1} creates an instance of that type.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyMessageBoxOptions" Category="Microsoft.Globalization" CheckId="CA1300">
+    <Resolution Name="Default">Change {0} to call the MessageBox.Show overload that specifies MessageBoxOptions, and make sure to set MessageBoxOptions.RightAlign and MessageBoxOptions.RtlReading if RightToLeft is set to RightToLeft.Yes on the parent control.</Resolution>
+   </Rule>
+   <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+    <Resolution Name="CSharp2_0">Because type {0} contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="UseGenericEventHandlerInstances" Category="Microsoft.Design" CheckId="CA1003">
+    <Resolution Name="Default">Remove {0} and replace its usage with EventHandler&lt;T&gt;</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>
