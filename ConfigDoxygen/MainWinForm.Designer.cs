@@ -23,7 +23,7 @@
         /// il contenuto del metodo con l'editor di codice.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.dgvConfig = new System.Windows.Forms.DataGridView();
             this.gboxDescription = new System.Windows.Forms.GroupBox();
@@ -52,14 +52,14 @@
             this.dgvConfig.AllowUserToDeleteRows = false;
             this.dgvConfig.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConfig.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConfig.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvConfig.GridColor = System.Drawing.Color.Tan;
             this.dgvConfig.Location = new System.Drawing.Point(6, 26);
             this.dgvConfig.Name = "dgvConfig";
@@ -100,7 +100,6 @@
             // 
             // gbConfFile
             // 
-            this.gbConfFile.Controls.Add(this.gbProgressBar);
             this.gbConfFile.Controls.Add(this.dgvConfig);
             this.gbConfFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbConfFile.ForeColor = System.Drawing.Color.Honeydew;
@@ -113,9 +112,9 @@
             // 
             // gbProgressBar
             // 
-            this.gbProgressBar.Location = new System.Drawing.Point(6, 487);
+            this.gbProgressBar.Location = new System.Drawing.Point(1, 600);
             this.gbProgressBar.Name = "gbProgressBar";
-            this.gbProgressBar.Size = new System.Drawing.Size(696, 14);
+            this.gbProgressBar.Size = new System.Drawing.Size(1244, 14);
             this.gbProgressBar.TabIndex = 7;
             // 
             // lbPath
@@ -159,10 +158,10 @@
             // 
             // btExit
             // 
-            this.btExit.Image = global::ConfigDoxygen.Properties.Resources.logout;
+            this.btExit.Image = ((System.Drawing.Image)(resources.GetObject("btExit.Image")));
             this.btExit.Location = new System.Drawing.Point(864, 7);
             this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(58, 39);
+            this.btExit.Size = new System.Drawing.Size(50, 39);
             this.btExit.TabIndex = 3;
             this.btExit.UseVisualStyleBackColor = true;
             this.btExit.Click += new System.EventHandler(this.btExit_Click);
@@ -236,6 +235,7 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1249, 615);
             this.ControlBox = false;
+            this.Controls.Add(this.gbProgressBar);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btCloseConnection);
             this.Controls.Add(this.btRestore);

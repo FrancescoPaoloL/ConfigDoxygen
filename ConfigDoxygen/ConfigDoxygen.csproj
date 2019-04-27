@@ -36,8 +36,7 @@
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>doxygen.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>ConfigDoxygen.Program</StartupObject>
@@ -109,6 +108,8 @@
     <None Include="Resources\minus.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="doxygen.ico" />
+    <Content Include="ZZZ_TODO.txt" />
     <None Include="Resources\header.txt" />
     <Content Include="Docs\TODO.txt" />
   </ItemGroup>
