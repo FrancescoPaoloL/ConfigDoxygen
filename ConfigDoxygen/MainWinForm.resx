@@ -141,6 +141,9 @@
         rkJggg==
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>346, 17</value>
+  </metadata>
   <data name="btExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYa
@@ -233,6 +236,23 @@
   </data>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>184, 17</value>
+  </metadata>
+  <data name="btNewFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAAmJL
+        R0QAAKqNIzIAAAAHdElNRQfjBB0AOy1ymllDAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA0LTI4VDIy
+        OjU5OjQ1KzAyOjAw6l4A3QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wNC0yOFQyMjo1OTo0NSswMjow
+        MJsDuGEAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAA7klEQVRIS+3VO4oCQRSF
+        4UYMfERuwQ2YmoggiMaCmZMMDpqamxkJLsAVGLgDETWbaPZgNpkrGMT5r9BQXIrqW9KCgQe+oKXqnKCF
+        TjwpY4eb0RVTmFLBHr6ikCUyU8UR7sUZ6gEbmAZ85WKEUNbIHJDyE3S5yGVgDF2cymXgC3LoAnnBrjZC
+        iRo43J/i8vQBU152oImtYwBvHh34gNxLLeDNeyCXgQZ+lDPcgV/oM32YBrpwy6yk+zUGOtCXLT5hGiig
+        pkzglq2gzxRhGvAl+l/0Dd9nUStBEj1g1YLEPNDDH9zDIenAEO7vc6gkyT+/ddVSnN77AwAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>346, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

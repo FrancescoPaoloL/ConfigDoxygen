@@ -1,6 +1,6 @@
 ﻿///-----------------------------------------------------------------
 ///   Namespace:      ConfigDoxygen
-///   Class:          General
+///   Class:          Helper
 ///   Description:    <Description>
 ///   Author:         Francesco Paolo Lezza         Date: 08/08/2018
 ///   Notes:          <Notes>
@@ -22,7 +22,7 @@ namespace ConfigDoxygen {
     /// <summary>
     /// A static class which contains some useful utilities for general purpose
     /// </summary>
-    public class General {
+    public class Helper {
         /// <summary>
         /// This method takes a dictionary parameter and copy key/value pairs
         /// (value is a DefinitionTag object)

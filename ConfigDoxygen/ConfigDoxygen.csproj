@@ -54,12 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\aboutME\frmAbout.cs">
+      <Link>frmAbout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\aboutME\frmAbout.designer.cs">
+      <Link>frmAbout.designer.cs</Link>
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="DefinitionTAG.cs" />
     <Compile Include="DictionaryUtils.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FileUtils.cs" />
-    <Compile Include="General.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,10 +77,15 @@
       <DependentUpon>MainWinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringUtils.cs" />
     <Compile Include="Trivia.cs" />
+    <EmbeddedResource Include="..\..\..\aboutME\frmAbout.resx">
+      <Link>frmAbout.resx</Link>
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>

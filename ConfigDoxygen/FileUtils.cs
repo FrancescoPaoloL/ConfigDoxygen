@@ -52,28 +52,20 @@ namespace ConfigDoxygen {
         ///                        a possibly array of String type if "DialogResult.OK"
         /// </param>
         /// <param name="fileName">This parameter is "out" decorated; so returns -- possibly --
-        ///                        what file is opened.
+        ///                        what file is opened (if it is not specified).
         /// </param>
         /// <param name="size">This parameter is "out" decorated; so returns -- possibly --
         ///                    the size of the opened file.
         /// </param>
-        /// <returns></returns>
-        public static Boolean OpenTextFile(out String[] textData, out String fileName, out Int32 size) {
+        /// <param name="pathFile">Represents the doxygen configuration file path</param>
+        /// <returns>Returns a boolean value</returns>
+        public static Boolean OpenTextFile(out String[] textData, out Int32 size, ref String pathFile) {
             textData = null;
-            fileName = String.Empty;
             size = 0;
 
-            OpenFileDialog Ofd = new OpenFileDialog();
-#if DEBUG
-            Ofd.InitialDirectory = @"E:\SORGENTI\APPs\ConfigDoxygen\src\ConfigDoxygen\docs";
-#endif
-
-            DialogResult result = Ofd.ShowDialog();
-
-            if (result == DialogResult.OK) {
-                fileName = Ofd.FileName;
+            if (pathFile.Length > 0) {
                 try {
-                    textData = File.ReadAllLines(fileName);
+                    textData = File.ReadAllLines(pathFile);
                     size = textData.Length;
                 } catch (IOException) {
                     return false;
@@ -81,6 +73,30 @@ namespace ConfigDoxygen {
 
                 return true;
             }
+
+
+            if (pathFile.Length == 0) {
+                OpenFileDialog Ofd = new OpenFileDialog();
+#if DEBUG
+                Ofd.InitialDirectory = @"E:\SORGENTI\APPs\ConfigDoxygen\src\ConfigDoxygen\docs";
+#endif
+
+                DialogResult result = Ofd.ShowDialog();
+
+                if (result == DialogResult.OK) {
+                    try {
+                        pathFile = Path.GetDirectoryName(Ofd.FileName);
+                        textData = File.ReadAllLines(Ofd.FileName);
+                        size = textData.Length;
+                    } catch (IOException) {
+                        return false;
+                    }
+
+                    return true;
+                }
+            }
+
+
 
             return false;
         }

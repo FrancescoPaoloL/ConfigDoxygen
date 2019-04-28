@@ -23,13 +23,13 @@
         /// il contenuto del metodo con l'editor di codice.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.dgvConfig = new System.Windows.Forms.DataGridView();
             this.gboxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.gbConfFile = new System.Windows.Forms.GroupBox();
-            this.gbProgressBar = new System.Windows.Forms.ProgressBar();
             this.lbPath = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btOpenFile = new System.Windows.Forms.Button();
@@ -41,6 +41,10 @@
             this.btCloseConnection = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btNewFile = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.gbProgressBar = new System.Windows.Forms.ProgressBar();
+            this.lklbAbout = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfig)).BeginInit();
             this.gboxDescription.SuspendLayout();
             this.gbConfFile.SuspendLayout();
@@ -51,6 +55,7 @@
             this.dgvConfig.AllowUserToAddRows = false;
             this.dgvConfig.AllowUserToDeleteRows = false;
             this.dgvConfig.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dgvConfig.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
@@ -100,6 +105,7 @@
             // 
             // gbConfFile
             // 
+            this.gbConfFile.Controls.Add(this.gbProgressBar);
             this.gbConfFile.Controls.Add(this.dgvConfig);
             this.gbConfFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbConfFile.ForeColor = System.Drawing.Color.Honeydew;
@@ -110,19 +116,12 @@
             this.gbConfFile.TabStop = false;
             this.gbConfFile.Text = "Configuration File";
             // 
-            // gbProgressBar
-            // 
-            this.gbProgressBar.Location = new System.Drawing.Point(1, 600);
-            this.gbProgressBar.Name = "gbProgressBar";
-            this.gbProgressBar.Size = new System.Drawing.Size(1244, 14);
-            this.gbProgressBar.TabIndex = 7;
-            // 
             // lbPath
             // 
             this.lbPath.BackColor = System.Drawing.Color.Transparent;
             this.lbPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbPath.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPath.ForeColor = System.Drawing.Color.White;
+            this.lbPath.ForeColor = System.Drawing.Color.PeachPuff;
             this.lbPath.Location = new System.Drawing.Point(67, 571);
             this.lbPath.Name = "lbPath";
             this.lbPath.Size = new System.Drawing.Size(1175, 23);
@@ -153,16 +152,18 @@
             this.btMinimize.Name = "btMinimize";
             this.btMinimize.Size = new System.Drawing.Size(42, 39);
             this.btMinimize.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btMinimize, "Minimize app");
             this.btMinimize.UseVisualStyleBackColor = true;
             this.btMinimize.Click += new System.EventHandler(this.btMinimize_Click);
             // 
             // btExit
             // 
             this.btExit.Image = ((System.Drawing.Image)(resources.GetObject("btExit.Image")));
-            this.btExit.Location = new System.Drawing.Point(864, 7);
+            this.btExit.Location = new System.Drawing.Point(933, 7);
             this.btExit.Name = "btExit";
             this.btExit.Size = new System.Drawing.Size(50, 39);
             this.btExit.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btExit, "Exit app");
             this.btExit.UseVisualStyleBackColor = true;
             this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
@@ -194,39 +195,75 @@
             // btRestore
             // 
             this.btRestore.Image = ((System.Drawing.Image)(resources.GetObject("btRestore.Image")));
-            this.btRestore.Location = new System.Drawing.Point(771, 7);
+            this.btRestore.Location = new System.Drawing.Point(823, 7);
             this.btRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btRestore.Name = "btRestore";
             this.btRestore.Size = new System.Drawing.Size(42, 39);
             this.btRestore.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btRestore, "Reload original values");
             this.btRestore.UseVisualStyleBackColor = true;
             this.btRestore.Click += new System.EventHandler(this.btRestore_Click);
             // 
             // btCloseConnection
             // 
             this.btCloseConnection.Image = ((System.Drawing.Image)(resources.GetObject("btCloseConnection.Image")));
-            this.btCloseConnection.Location = new System.Drawing.Point(725, 7);
+            this.btCloseConnection.Location = new System.Drawing.Point(777, 7);
             this.btCloseConnection.Margin = new System.Windows.Forms.Padding(2);
             this.btCloseConnection.Name = "btCloseConnection";
             this.btCloseConnection.Size = new System.Drawing.Size(42, 39);
             this.btCloseConnection.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btCloseConnection, "Close the opened doxygen config file");
             this.btCloseConnection.UseVisualStyleBackColor = true;
             this.btCloseConnection.Click += new System.EventHandler(this.btCloseConnection_Click);
             // 
             // btSave
             // 
             this.btSave.Image = ((System.Drawing.Image)(resources.GetObject("btSave.Image")));
-            this.btSave.Location = new System.Drawing.Point(817, 7);
+            this.btSave.Location = new System.Drawing.Point(886, 7);
             this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(42, 39);
             this.btSave.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btSave, "Save all");
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // btNewFile
+            // 
+            this.btNewFile.Image = ((System.Drawing.Image)(resources.GetObject("btNewFile.Image")));
+            this.btNewFile.Location = new System.Drawing.Point(731, 7);
+            this.btNewFile.Margin = new System.Windows.Forms.Padding(2);
+            this.btNewFile.Name = "btNewFile";
+            this.btNewFile.Size = new System.Drawing.Size(42, 39);
+            this.btNewFile.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btNewFile, "Add new doxygen config file");
+            this.btNewFile.UseVisualStyleBackColor = true;
+            this.btNewFile.Click += new System.EventHandler(this.btNewFile_Click);
+            // 
+            // gbProgressBar
+            // 
+            this.gbProgressBar.Location = new System.Drawing.Point(6, 23);
+            this.gbProgressBar.Name = "gbProgressBar";
+            this.gbProgressBar.Size = new System.Drawing.Size(696, 17);
+            this.gbProgressBar.TabIndex = 8;
+            // 
+            // lklbAbout
+            // 
+            this.lklbAbout.AutoSize = true;
+            this.lklbAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lklbAbout.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.lklbAbout.Location = new System.Drawing.Point(1193, 594);
+            this.lklbAbout.Name = "lklbAbout";
+            this.lklbAbout.Size = new System.Drawing.Size(44, 17);
+            this.lklbAbout.TabIndex = 12;
+            this.lklbAbout.TabStop = true;
+            this.lklbAbout.Text = "about";
+            this.lklbAbout.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.lklbAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklbAbout_LinkClicked);
             // 
             // FrmMain
             // 
@@ -235,7 +272,8 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1249, 615);
             this.ControlBox = false;
-            this.Controls.Add(this.gbProgressBar);
+            this.Controls.Add(this.lklbAbout);
+            this.Controls.Add(this.btNewFile);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btCloseConnection);
             this.Controls.Add(this.btRestore);
@@ -275,13 +313,16 @@
         private System.Windows.Forms.Label lbPath;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btOpenFile;
-        private System.Windows.Forms.ProgressBar gbProgressBar;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btRestore;
         private System.Windows.Forms.Button btCloseConnection;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btNewFile;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ProgressBar gbProgressBar;
+        private System.Windows.Forms.LinkLabel lklbAbout;
     }
 }
 

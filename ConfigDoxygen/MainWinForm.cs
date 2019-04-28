@@ -9,16 +9,20 @@
 ///   Name          Date            Description
 ///   Me            13/08/18        Fixed problem with Windows XP
 ///   Me            25/04/19        Modified layout
-///   
+///   Me            29/04/19        Added about logic
+///                                 Improved code
 ///-----------------------------------------------------------------
 ///
 
+using AboutMe;
+using InputBoxSample;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms;
-using InputBoxSample;
+using System.Drawing;
+using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
 
 [assembly: CLSCompliant(true)]
 namespace ConfigDoxygen {
@@ -58,7 +62,8 @@ namespace ConfigDoxygen {
             Trivia.SetListsInForm(ref ListButton, ref ListCombo, ref ListOpenDialog, ref ListOpenTextBox);
 
             gbConfFile.Text = "No Configuration file opened";
-            lbPath.Text = "Please select a config file!";
+            gbConfFile.ForeColor = Color.DarkRed;
+            lbPath.Text = "Please select a config file or create a new one!";
             gbProgressBar.Visible = false;
 
             txtSearch.CharacterCasing = CharacterCasing.Upper;
@@ -109,20 +114,19 @@ namespace ConfigDoxygen {
         /// 
         /// For events see: https://stackoverflow.com/questions/5652957/what-event-catches-a-change-of-value-in-a-combobox-in-a-datagridviewcell
         /// </summary>
-        private void ReadConfigFile() {
+        /// 
+        /// <param name="file">Represents </param>        
+        private void ReadConfigFile(String pathFile = "") {
             Int32 size = 0;
-            String fileName = String.Empty;
             String[] TextData = null;
                         
             //https://stackoverflow.com/questions/5652957/what-event-catches-a-change-of-value-in-a-combobox-in-a-datagridviewcell
             dgvConfig.CurrentCellDirtyStateChanged -= new EventHandler(dataGridView_CurrentCellDirtyStateChanged);
             dgvConfig.CellValueChanged -= new DataGridViewCellEventHandler(dataGridView_CellValueChanged);
 
-            Boolean f = FileUtils.OpenTextFile(out TextData, out fileName, out size);
-            
-            if (!f) return;
+            Boolean f = FileUtils.OpenTextFile(out TextData, out size, ref pathFile);
 
-            lbPath.Text = fileName + "      (" + StringUtils.BytesToString(size) + ")";
+            if (!f) return;
 
             DictionaryAllRows = DictionaryUtils.SplitDataInDictionary(TextData);
 
@@ -132,6 +136,9 @@ namespace ConfigDoxygen {
             //https://stackoverflow.com/questions/5652957/what-event-catches-a-change-of-value-in-a-combobox-in-a-datagridviewcell
             dgvConfig.CellValueChanged += new DataGridViewCellEventHandler(dataGridView_CellValueChanged);
             dgvConfig.CurrentCellDirtyStateChanged += new EventHandler(dataGridView_CurrentCellDirtyStateChanged);
+
+            lbPath.Text = pathFile + "      (" + StringUtils.BytesToString(size) + ")";
+
         }
 
         /// <summary>
@@ -150,6 +157,7 @@ namespace ConfigDoxygen {
             dgvConfig.Visible = false;
 
             gbConfFile.Text = "Reading Configuration file...";
+            
 
             dgvConfig.AutoGenerateColumns = true;
 
@@ -232,6 +240,7 @@ namespace ConfigDoxygen {
 
             dgvConfig.Visible = true;
             gbConfFile.Text = "Configuration file: nr " + dgvConfig.Rows.Count.ToString() + " rows";
+            gbConfFile.ForeColor = Color.GreenYellow;
             dgvConfig.Refresh();
 
             gbProgressBar.Value = 0;
@@ -343,7 +352,7 @@ namespace ConfigDoxygen {
         /// <param name="sender">Object that is an object type</param>
         /// <param name="e">This contains event info about object</param>
         private void btOpenFile_Click(object sender, EventArgs e) {
-            CloseConnection();
+            //CloseConnection();
             ReadConfigFile();
         }
 
@@ -353,9 +362,10 @@ namespace ConfigDoxygen {
         /// </summary>
         private void CloseConnection() {
             gbConfFile.Text = "No Configuration file opened";
-            lbPath.Text = "Please select a config file!";
+            lbPath.Text = "Please select a config file or create a new one!";
             txtDescription.Text = String.Empty;
             gbConfFile.Text = "No Configuration file opened";
+            gbConfFile.ForeColor = Color.DarkRed;
             dgvConfig.DataSource = null;
             dgvConfig.Rows.Clear();
             dgvConfig.Columns.Clear();
@@ -451,7 +461,7 @@ namespace ConfigDoxygen {
 
                 Dictionary<String, DefinitionTag> FilteredDictionary = null;
 
-                FilteredDictionary = General.CopyDictionary(DictionaryAllRows);
+                FilteredDictionary = Helper.CopyDictionary(DictionaryAllRows);
 
                 SetDataGridView(FilteredDictionary);
             }
@@ -503,5 +513,43 @@ namespace ConfigDoxygen {
             String name = saveFileDialog1.FileName;
             FileUtils.SavingConfFile(name, ref DictionaryAllRows);
         }
+
+
+        /// <summary>
+        /// Create a temporaney doxygen configuration file
+        /// </summary>
+        /// <param name="sender">Object that is an object type</param>
+        /// <param name="e">This contains event info about object</param>
+        private void btNewFile_Click(object sender, EventArgs e) {
+            Parameters parameters = new Parameters();
+            ReadConfigFile(parameters.pathDoxyFile);
+        }
+
+        /// <summary>
+        /// Show about the humble author
+        /// </summary>
+        internal static void showAbout() {
+            try {
+                frmAbout frm = new frmAbout();
+                frm.programName = System.AppDomain.CurrentDomain.FriendlyName;
+                frm.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                frm.license = "MIT License";
+
+                frm.ShowDialog();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Shows the about winform
+        /// </summary>
+        /// <param name="sender">Object that is an object type</param>
+        /// <param name="e">This contains event info about object</param>
+        private void lklbAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            showAbout();
+        }
+
     }
 }
