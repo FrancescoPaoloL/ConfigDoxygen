@@ -305,7 +305,7 @@ namespace ConfigDoxygen {
         public const String K_CharDescription = "#";
         public const String K_CharDescriptionAlt = "#-";
         public const String K_CharDivideKeyValue = "=";
-        public const String K_ButtonText = "...";
+        
         public const String K_DelimiterDescription = "#---------------------------------------------------------------------------";
 
         public const Int32 K_ColWidthTag = 350;

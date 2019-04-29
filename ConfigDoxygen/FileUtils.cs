@@ -124,7 +124,6 @@ namespace ConfigDoxygen {
                 if (f) sb = sb.Append("\"");
                 sb = sb.Append(Environment.NewLine);
                 sb = sb.Append(Environment.NewLine);
-
             }
 
             File.WriteAllText(path, sb.ToString());

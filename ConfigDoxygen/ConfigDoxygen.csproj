@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="..\..\..\aboutME\frmAbout.cs">
       <Link>frmAbout.cs</Link>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="..\..\..\aboutME\frmAbout.designer.cs">
       <Link>frmAbout.designer.cs</Link>

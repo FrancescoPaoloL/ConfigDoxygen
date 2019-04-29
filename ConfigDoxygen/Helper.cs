@@ -22,7 +22,42 @@ namespace ConfigDoxygen {
     /// <summary>
     /// A static class which contains some useful utilities for general purpose
     /// </summary>
-    public class Helper {
+    public static class Helper {
+        /// <summary>
+        /// This static method displays the assembly build date
+        /// 
+        /// see: https://stackoverflow.com/questions/1600962/displaying-the-build-date
+        /// 
+        /// IMPORTANT!  
+        /// The method was working for .Net Core 1.0, but stopped working after .Net Core 1.1 release 
+        /// (gives random years in 1900-2020 range) 
+        /// </summary>
+        /// <param name="assembly">Represents an Assembly object</param>
+        /// <param name="target">Represents the local time zone.</param>
+        /// <returns></returns>
+        public static DateTime GetLinkerTime(this Assembly assembly, TimeZoneInfo target = null) {
+            var filePath = assembly.Location;
+            const int c_PeHeaderOffset = 60;
+            const int c_LinkerTimestampOffset = 8;
+
+            var buffer = new byte[2048];
+
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                stream.Read(buffer, 0, 2048);
+
+            var offset = BitConverter.ToInt32(buffer, c_PeHeaderOffset);
+            var secondsSince1970 = BitConverter.ToInt32(buffer, offset + c_LinkerTimestampOffset);
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            var linkTimeUtc = epoch.AddSeconds(secondsSince1970);
+
+            var tz = target ?? TimeZoneInfo.Local;
+            var localTime = TimeZoneInfo.ConvertTimeFromUtc(linkTimeUtc, tz);
+
+            return localTime;
+        }
+
+
         /// <summary>
         /// This method takes a dictionary parameter and copy key/value pairs
         /// (value is a DefinitionTag object)

@@ -30,6 +30,7 @@
             this.gboxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.gbConfFile = new System.Windows.Forms.GroupBox();
+            this.gbProgressBar = new System.Windows.Forms.ProgressBar();
             this.lbPath = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btOpenFile = new System.Windows.Forms.Button();
@@ -43,8 +44,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btNewFile = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.gbProgressBar = new System.Windows.Forms.ProgressBar();
             this.lklbAbout = new System.Windows.Forms.LinkLabel();
+            this.lbInfoVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfig)).BeginInit();
             this.gboxDescription.SuspendLayout();
             this.gbConfFile.SuspendLayout();
@@ -83,7 +84,7 @@
             this.gboxDescription.Controls.Add(this.txtDescription);
             this.gboxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDescription.ForeColor = System.Drawing.Color.Honeydew;
-            this.gboxDescription.Location = new System.Drawing.Point(725, 52);
+            this.gboxDescription.Location = new System.Drawing.Point(725, 66);
             this.gboxDescription.Name = "gboxDescription";
             this.gboxDescription.Size = new System.Drawing.Size(517, 506);
             this.gboxDescription.TabIndex = 1;
@@ -109,12 +110,21 @@
             this.gbConfFile.Controls.Add(this.dgvConfig);
             this.gbConfFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbConfFile.ForeColor = System.Drawing.Color.Honeydew;
-            this.gbConfFile.Location = new System.Drawing.Point(12, 51);
+            this.gbConfFile.Location = new System.Drawing.Point(12, 65);
             this.gbConfFile.Name = "gbConfFile";
             this.gbConfFile.Size = new System.Drawing.Size(708, 507);
             this.gbConfFile.TabIndex = 2;
             this.gbConfFile.TabStop = false;
             this.gbConfFile.Text = "Configuration File";
+            // 
+            // gbProgressBar
+            // 
+            this.gbProgressBar.Location = new System.Drawing.Point(245, 3);
+            this.gbProgressBar.Name = "gbProgressBar";
+            this.gbProgressBar.Size = new System.Drawing.Size(457, 17);
+            this.gbProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.gbProgressBar.TabIndex = 8;
+            this.gbProgressBar.Visible = false;
             // 
             // lbPath
             // 
@@ -122,7 +132,7 @@
             this.lbPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbPath.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPath.ForeColor = System.Drawing.Color.PeachPuff;
-            this.lbPath.Location = new System.Drawing.Point(67, 571);
+            this.lbPath.Location = new System.Drawing.Point(67, 585);
             this.lbPath.Name = "lbPath";
             this.lbPath.Size = new System.Drawing.Size(1175, 23);
             this.lbPath.TabIndex = 5;
@@ -137,7 +147,7 @@
             // 
             this.btOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("btOpenFile.Image")));
             this.btOpenFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btOpenFile.Location = new System.Drawing.Point(14, 564);
+            this.btOpenFile.Location = new System.Drawing.Point(14, 578);
             this.btOpenFile.Name = "btOpenFile";
             this.btOpenFile.Size = new System.Drawing.Size(47, 39);
             this.btOpenFile.TabIndex = 6;
@@ -147,7 +157,7 @@
             // btMinimize
             // 
             this.btMinimize.Image = global::ConfigDoxygen.Properties.Resources.minus;
-            this.btMinimize.Location = new System.Drawing.Point(1203, 3);
+            this.btMinimize.Location = new System.Drawing.Point(1200, 2);
             this.btMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btMinimize.Name = "btMinimize";
             this.btMinimize.Size = new System.Drawing.Size(42, 39);
@@ -159,7 +169,7 @@
             // btExit
             // 
             this.btExit.Image = ((System.Drawing.Image)(resources.GetObject("btExit.Image")));
-            this.btExit.Location = new System.Drawing.Point(933, 7);
+            this.btExit.Location = new System.Drawing.Point(933, 21);
             this.btExit.Name = "btExit";
             this.btExit.Size = new System.Drawing.Size(50, 39);
             this.btExit.TabIndex = 3;
@@ -172,7 +182,7 @@
             this.txtSearch.BackColor = System.Drawing.Color.Ivory;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
-            this.txtSearch.Location = new System.Drawing.Point(76, 16);
+            this.txtSearch.Location = new System.Drawing.Point(76, 30);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(638, 26);
@@ -184,7 +194,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(11, 20);
+            this.label1.Location = new System.Drawing.Point(11, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 18);
@@ -195,7 +205,7 @@
             // btRestore
             // 
             this.btRestore.Image = ((System.Drawing.Image)(resources.GetObject("btRestore.Image")));
-            this.btRestore.Location = new System.Drawing.Point(823, 7);
+            this.btRestore.Location = new System.Drawing.Point(823, 21);
             this.btRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btRestore.Name = "btRestore";
             this.btRestore.Size = new System.Drawing.Size(42, 39);
@@ -207,7 +217,7 @@
             // btCloseConnection
             // 
             this.btCloseConnection.Image = ((System.Drawing.Image)(resources.GetObject("btCloseConnection.Image")));
-            this.btCloseConnection.Location = new System.Drawing.Point(777, 7);
+            this.btCloseConnection.Location = new System.Drawing.Point(777, 21);
             this.btCloseConnection.Margin = new System.Windows.Forms.Padding(2);
             this.btCloseConnection.Name = "btCloseConnection";
             this.btCloseConnection.Size = new System.Drawing.Size(42, 39);
@@ -219,7 +229,7 @@
             // btSave
             // 
             this.btSave.Image = ((System.Drawing.Image)(resources.GetObject("btSave.Image")));
-            this.btSave.Location = new System.Drawing.Point(886, 7);
+            this.btSave.Location = new System.Drawing.Point(886, 21);
             this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(42, 39);
@@ -235,7 +245,7 @@
             // btNewFile
             // 
             this.btNewFile.Image = ((System.Drawing.Image)(resources.GetObject("btNewFile.Image")));
-            this.btNewFile.Location = new System.Drawing.Point(731, 7);
+            this.btNewFile.Location = new System.Drawing.Point(731, 21);
             this.btNewFile.Margin = new System.Windows.Forms.Padding(2);
             this.btNewFile.Name = "btNewFile";
             this.btNewFile.Size = new System.Drawing.Size(42, 39);
@@ -244,19 +254,12 @@
             this.btNewFile.UseVisualStyleBackColor = true;
             this.btNewFile.Click += new System.EventHandler(this.btNewFile_Click);
             // 
-            // gbProgressBar
-            // 
-            this.gbProgressBar.Location = new System.Drawing.Point(6, 23);
-            this.gbProgressBar.Name = "gbProgressBar";
-            this.gbProgressBar.Size = new System.Drawing.Size(696, 17);
-            this.gbProgressBar.TabIndex = 8;
-            // 
             // lklbAbout
             // 
             this.lklbAbout.AutoSize = true;
             this.lklbAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lklbAbout.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.lklbAbout.Location = new System.Drawing.Point(1193, 594);
+            this.lklbAbout.Location = new System.Drawing.Point(1193, 608);
             this.lklbAbout.Name = "lklbAbout";
             this.lklbAbout.Size = new System.Drawing.Size(44, 17);
             this.lklbAbout.TabIndex = 12;
@@ -265,13 +268,25 @@
             this.lklbAbout.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
             this.lklbAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklbAbout_LinkClicked);
             // 
+            // lbInfoVersion
+            // 
+            this.lbInfoVersion.AutoSize = true;
+            this.lbInfoVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfoVersion.ForeColor = System.Drawing.Color.PeachPuff;
+            this.lbInfoVersion.Location = new System.Drawing.Point(0, 2);
+            this.lbInfoVersion.Name = "lbInfoVersion";
+            this.lbInfoVersion.Size = new System.Drawing.Size(46, 18);
+            this.lbInfoVersion.TabIndex = 13;
+            this.lbInfoVersion.Text = "label2";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1249, 615);
+            this.ClientSize = new System.Drawing.Size(1249, 634);
             this.ControlBox = false;
+            this.Controls.Add(this.lbInfoVersion);
             this.Controls.Add(this.lklbAbout);
             this.Controls.Add(this.btNewFile);
             this.Controls.Add(this.btSave);
@@ -323,6 +338,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ProgressBar gbProgressBar;
         private System.Windows.Forms.LinkLabel lklbAbout;
+        private System.Windows.Forms.Label lbInfoVersion;
     }
 }
 

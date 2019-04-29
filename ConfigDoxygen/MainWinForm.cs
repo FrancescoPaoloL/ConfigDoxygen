@@ -49,6 +49,8 @@ namespace ConfigDoxygen {
         /// <param name="sender">Object that is Form1</param>
         /// <param name="e">This contains event info about object</param>
         private void Form1_Load(object sender, EventArgs e) {
+            var myDate = Assembly.GetExecutingAssembly().GetLinkerTime().ToShortDateString();
+            lbInfoVersion.Text = "ConfigDoxyGen ver. " + Application.ProductVersion + " (" + myDate + ")";
             SetElementsInForm();
         }
 
@@ -136,6 +138,8 @@ namespace ConfigDoxygen {
             //https://stackoverflow.com/questions/5652957/what-event-catches-a-change-of-value-in-a-combobox-in-a-datagridviewcell
             dgvConfig.CellValueChanged += new DataGridViewCellEventHandler(dataGridView_CellValueChanged);
             dgvConfig.CurrentCellDirtyStateChanged += new EventHandler(dataGridView_CurrentCellDirtyStateChanged);
+            dgvConfig.Rows[0].Selected = true;
+            txtDescription.Text = dgvConfig.Rows[0].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString();
 
             lbPath.Text = pathFile + "      (" + StringUtils.BytesToString(size) + ")";
 
@@ -153,6 +157,10 @@ namespace ConfigDoxygen {
         /// <param name="DictionaryDataSource">This parameter is a dictionary (filtered if it is possible) as datagridview datasource.</param>
         private void SetDataGridView(Dictionary<String, DefinitionTag> DictionaryDataSource) {
             CloseConnection();
+
+            dgvConfig.ColumnHeadersDefaultCellStyle.ForeColor = Color.Chocolate;
+            dgvConfig.ColumnHeadersDefaultCellStyle.BackColor = Color.Lavender;
+            dgvConfig.EnableHeadersVisualStyles = false;
 
             dgvConfig.Visible = false;
 
@@ -239,6 +247,9 @@ namespace ConfigDoxygen {
 
 
             dgvConfig.Visible = true;
+            dgvConfig.Rows[0].Selected = true;
+            txtDescription.Text = dgvConfig.Rows[0].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString();
+
             gbConfFile.Text = "Configuration file: nr " + dgvConfig.Rows.Count.ToString() + " rows";
             gbConfFile.ForeColor = Color.GreenYellow;
             dgvConfig.Refresh();
