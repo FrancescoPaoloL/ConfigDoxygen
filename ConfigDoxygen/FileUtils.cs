@@ -117,6 +117,20 @@ namespace ConfigDoxygen {
 
             foreach (KeyValuePair<String, DefinitionTag> entry in dict) {
                 f = Trivia.TestingQuoteValue(entry.Key);
+
+                String[] stringSeparators = new string[] { "\r\n" };
+                String paddedParam = entry.Value.Description.PadLeft(entry.Value.Description.Length + 1); ;
+                paddedParam = paddedParam.PadLeft(10);
+
+                String[] lines = paddedParam.Split(stringSeparators, StringSplitOptions.None);
+
+                foreach (String s in lines) {
+                    sb = sb.Append("#");
+                    sb = sb.Append(s);
+                    sb = sb.Append(Environment.NewLine);
+                }
+
+                sb = sb.Append(Environment.NewLine);
                 sb = sb.Append(entry.Key);
                 sb = sb.Append(" = ");
                 if (f) sb = sb.Append("\"");

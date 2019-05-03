@@ -42,7 +42,7 @@ namespace ConfigDoxygen {
                 if (j > Constants.K_FirstRowReadable) {
                     myCh = StringExtensions.Left(row, Constants.K_ColumnDescriptionHidden).Trim();
                     if (myCh == Constants.K_CharDescription) {
-                        sb = sb.Append(row.Replace(Constants.K_CharDescription, ""));
+                        sb = sb.AppendLine(row.Replace(Constants.K_CharDescription, ""));
                     } else if (myCh == Constants.K_CharDescriptionAlt) {
                         //NOP
                     } else if (myCh.Length > 0) {

@@ -139,7 +139,7 @@ namespace ConfigDoxygen {
             dgvConfig.CellValueChanged += new DataGridViewCellEventHandler(dataGridView_CellValueChanged);
             dgvConfig.CurrentCellDirtyStateChanged += new EventHandler(dataGridView_CurrentCellDirtyStateChanged);
             dgvConfig.Rows[0].Selected = true;
-            txtDescription.Text = dgvConfig.Rows[0].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString();
+            txtDescription.Text = dgvConfig.Rows[0].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString().Replace("\r\n", "");
 
             lbPath.Text = pathFile + "      (" + StringUtils.BytesToString(size) + ")";
 
@@ -248,7 +248,7 @@ namespace ConfigDoxygen {
 
             dgvConfig.Visible = true;
             dgvConfig.Rows[0].Selected = true;
-            txtDescription.Text = dgvConfig.Rows[0].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString();
+            txtDescription.Text = dgvConfig.Rows[0].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString().Replace("\r\n", ""); ;
 
             gbConfFile.Text = "Configuration file: nr " + dgvConfig.Rows.Count.ToString() + " rows";
             gbConfFile.ForeColor = Color.GreenYellow;
@@ -321,7 +321,7 @@ namespace ConfigDoxygen {
             }
             
             if(e.ColumnIndex < 2)
-                txtDescription.Text = dgvConfig.Rows[e.RowIndex].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString();
+                txtDescription.Text = dgvConfig.Rows[e.RowIndex].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString().Replace("\r\n", "");
         }
 
 
@@ -537,14 +537,14 @@ namespace ConfigDoxygen {
         }
 
         /// <summary>
-        /// Show about the humble author
+        /// Show about the humble author and other stuff
         /// </summary>
         internal static void showAbout() {
             try {
                 frmAbout frm = new frmAbout();
                 frm.programName = System.AppDomain.CurrentDomain.FriendlyName;
                 frm.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                frm.license = "MIT License";
+                frm.license = "GPLv3 License";
 
                 frm.ShowDialog();
             } catch (Exception ex) {
@@ -560,6 +560,26 @@ namespace ConfigDoxygen {
         /// <param name="e">This contains event info about object</param>
         private void lklbAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             showAbout();
+        }
+
+
+        /// <summary>
+        /// This changes the mouse cursor in TextBox
+        /// </summary>
+        /// <param name="sender">Object that is an object type</param>
+        /// <param name="e">This contains event info about object</param>
+        private void txtDescription_MouseMove(object sender, MouseEventArgs e) {
+            ((TextBox)sender).Cursor = Cursors.Arrow;
+        }
+
+
+        /// <summary>
+        /// Loads a saved configuration file
+        /// </summary>
+        /// <param name="sender">Object that is an object type</param>
+        /// <param name="e">This contains event info about object</param>
+        private void btLoad_Click(object sender, EventArgs e) {
+            ReadConfigFile();
         }
 
     }

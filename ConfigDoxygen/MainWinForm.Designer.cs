@@ -46,6 +46,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lklbAbout = new System.Windows.Forms.LinkLabel();
             this.lbInfoVersion = new System.Windows.Forms.Label();
+            this.btLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfig)).BeginInit();
             this.gboxDescription.SuspendLayout();
             this.gbConfFile.SuspendLayout();
@@ -103,6 +104,7 @@
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(511, 478);
             this.txtDescription.TabIndex = 0;
+            this.txtDescription.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtDescription_MouseMove);
             // 
             // gbConfFile
             // 
@@ -119,9 +121,9 @@
             // 
             // gbProgressBar
             // 
-            this.gbProgressBar.Location = new System.Drawing.Point(245, 3);
+            this.gbProgressBar.Location = new System.Drawing.Point(4, 23);
             this.gbProgressBar.Name = "gbProgressBar";
-            this.gbProgressBar.Size = new System.Drawing.Size(457, 17);
+            this.gbProgressBar.Size = new System.Drawing.Size(702, 10);
             this.gbProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.gbProgressBar.TabIndex = 8;
             this.gbProgressBar.Visible = false;
@@ -169,7 +171,7 @@
             // btExit
             // 
             this.btExit.Image = ((System.Drawing.Image)(resources.GetObject("btExit.Image")));
-            this.btExit.Location = new System.Drawing.Point(933, 21);
+            this.btExit.Location = new System.Drawing.Point(983, 21);
             this.btExit.Name = "btExit";
             this.btExit.Size = new System.Drawing.Size(50, 39);
             this.btExit.TabIndex = 3;
@@ -205,7 +207,7 @@
             // btRestore
             // 
             this.btRestore.Image = ((System.Drawing.Image)(resources.GetObject("btRestore.Image")));
-            this.btRestore.Location = new System.Drawing.Point(823, 21);
+            this.btRestore.Location = new System.Drawing.Point(873, 21);
             this.btRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btRestore.Name = "btRestore";
             this.btRestore.Size = new System.Drawing.Size(42, 39);
@@ -217,7 +219,7 @@
             // btCloseConnection
             // 
             this.btCloseConnection.Image = ((System.Drawing.Image)(resources.GetObject("btCloseConnection.Image")));
-            this.btCloseConnection.Location = new System.Drawing.Point(777, 21);
+            this.btCloseConnection.Location = new System.Drawing.Point(827, 21);
             this.btCloseConnection.Margin = new System.Windows.Forms.Padding(2);
             this.btCloseConnection.Name = "btCloseConnection";
             this.btCloseConnection.Size = new System.Drawing.Size(42, 39);
@@ -229,7 +231,7 @@
             // btSave
             // 
             this.btSave.Image = ((System.Drawing.Image)(resources.GetObject("btSave.Image")));
-            this.btSave.Location = new System.Drawing.Point(886, 21);
+            this.btSave.Location = new System.Drawing.Point(936, 21);
             this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(42, 39);
@@ -279,6 +281,18 @@
             this.lbInfoVersion.TabIndex = 13;
             this.lbInfoVersion.Text = "label2";
             // 
+            // btLoad
+            // 
+            this.btLoad.Image = ((System.Drawing.Image)(resources.GetObject("btLoad.Image")));
+            this.btLoad.Location = new System.Drawing.Point(781, 21);
+            this.btLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.btLoad.Name = "btLoad";
+            this.btLoad.Size = new System.Drawing.Size(42, 39);
+            this.btLoad.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.btLoad, "Load configuration file");
+            this.btLoad.UseVisualStyleBackColor = true;
+            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,6 +300,7 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1249, 634);
             this.ControlBox = false;
+            this.Controls.Add(this.btLoad);
             this.Controls.Add(this.lbInfoVersion);
             this.Controls.Add(this.lklbAbout);
             this.Controls.Add(this.btNewFile);
@@ -339,6 +354,7 @@
         private System.Windows.Forms.ProgressBar gbProgressBar;
         private System.Windows.Forms.LinkLabel lklbAbout;
         private System.Windows.Forms.Label lbInfoVersion;
+        private System.Windows.Forms.Button btLoad;
     }
 }
 
