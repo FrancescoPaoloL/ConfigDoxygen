@@ -132,7 +132,12 @@ namespace ConfigDoxygen {
             return dt;
         }
 
-
+        /// <summary>
+        /// This method iterate over the first lines of configuration file
+        /// and returns the first row readable index.
+        /// </summary>
+        /// <param name="allText">Represents an array of strings</param>
+        /// <returns>Returns an int which represent the first row readable index</returns>
         public static Int32 getFirstRowReadable(String[] allText) {
             String crtlS = "# This tag specifies the encoding used for all characters in the configuration";
             Int32 i = 0;
@@ -144,5 +149,22 @@ namespace ConfigDoxygen {
 
             return i - 2;
         }
+
+
+        /// <summary>
+        /// This method replaces first occurrence of pattern in a string
+        /// </summary>
+        /// <param name="text">Represents where find and replace.</param>
+        /// <param name="search">Represents what search.</param>
+        /// <param name="replace">Represents what replace</param>
+        /// <returns></returns>
+        public static String replaceFirst(String text, String search, String replace) {
+            Int32 pos = text.IndexOf(search);
+            if (pos < 0) {
+                return text;
+            }
+            return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
+        }
+
     }
 }

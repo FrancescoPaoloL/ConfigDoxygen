@@ -39,19 +39,29 @@ namespace ConfigDoxygen {
             String myCh = String.Empty;
             StringBuilder sb = new StringBuilder();
             Int32 fistRow = Helper.getFirstRowReadable(TextData);
-            foreach (string row in TextData) {
+            foreach (String row in TextData) {
                 if (j > fistRow) {
                     myCh = StringExtensions.Left(row, Constants.K_ColumnDescriptionHidden).Trim();
                     if (myCh == Constants.K_CharDescription) {
-                        sb = sb.AppendLine(row.Replace(Constants.K_CharDescription, ""));
+
+                        sb = sb.AppendLine(Helper.replaceFirst(row, Constants.K_CharDescription, ""));
+
+                        //sb = sb.AppendLine(row.Replace(Constants.K_CharDescription, "", 1));
+                    
                     } else if (myCh == Constants.K_CharDescriptionAlt) {
                         //NOP
                     } else if (myCh.Length > 0) {
                         //kCharDivideKeyValue[0] --> from string to char
                         String[] tokens = row.Split(Constants.K_CharDivideKeyValue[0]).Select(x => x.Trim()).ToArray();
                         String myDescription = sb.ToString().Trim();
+
                         DefinitionTag def = new DefinitionTag();
-                        def.Value = tokens[1].ToString().Replace("\"", ""); ;
+                        def.Value = tokens[1].ToString().Replace("\"", "");
+
+                        //if (myDescription.Length == 0) {
+                        //    break;
+                        //}
+
                         def.Description = myDescription;
                         myRet.Add(tokens[0], def);
                         sb.Clear();

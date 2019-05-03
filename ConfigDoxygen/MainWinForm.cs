@@ -165,7 +165,6 @@ namespace ConfigDoxygen {
             dgvConfig.Visible = false;
 
             gbConfFile.Text = "Reading Configuration file...";
-            
 
             dgvConfig.AutoGenerateColumns = true;
 
@@ -237,7 +236,7 @@ namespace ConfigDoxygen {
             this.Refresh();
 
             dgvConfig.Columns[Constants.K_ColumnOriginalValue].Visible = false;
-            dgvConfig.Columns[Constants.K_ColumnDescriptionHidden].Visible = false;
+            dgvConfig.Columns[Constants.K_ColumnDescriptionHidden].Visible = true;
 
             //set autosize mode
             dgvConfig.Columns[Constants.K_ColumnTag].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -492,22 +491,46 @@ namespace ConfigDoxygen {
             StringBuilder sb = new StringBuilder();
 
             sb = sb.Append("Do you want modify these tags value to get a very basic output?\n\n");
-	        sb = sb.Append("    LATEX = NO\n");
-	        sb = sb.Append("    EXTRACT_STATIC = YES\n");
-	        sb = sb.Append("    CALLER_GRAPH = YES\n");
-	        sb = sb.Append("    HAVE_DOT = YES\n");
-	        sb = sb.Append("    CALL_GRAPH = YES\n");
-	        sb = sb.Append(@"    DOT_PATH = 'C:\Program Files (x86)\Graphviz2.38\bin'");
-
+            sb = sb.Append("    - GENERATE_LATEX = NO\n");
+            sb = sb.Append("    - EXTRACT_STATIC = YES\n");
+            sb = sb.Append("    - CALLER_GRAPH = YES\n");
+            sb = sb.Append("    - HAVE_DOT = YES\n");
+            sb = sb.Append("    - CALL_GRAPH = YES\n");
+            sb = sb.Append(@"    - DOT_PATH = 'C:\Program Files (x86)\Graphviz2.38\bin'");
 
             DialogResult dialogResult = MessageBox.Show(sb.ToString(), "Advices", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) {
-                DictionaryUtils.UpdateCustomValue("LATEX", "NO", "", ref DictionaryAllRows);
-                DictionaryUtils.UpdateCustomValue("EXTRACT_STATIC", "YES", "", ref DictionaryAllRows);
-                DictionaryUtils.UpdateCustomValue("CALLER_GRAPH", "YES", "", ref DictionaryAllRows);
-                DictionaryUtils.UpdateCustomValue("HAVE_DOT", "YES", "", ref DictionaryAllRows);
-                DictionaryUtils.UpdateCustomValue("CALL_GRAPH", "YES", "", ref DictionaryAllRows);
-                DictionaryUtils.UpdateCustomValue("DOT_PATH", @"C:\Program Files (x86)\Graphviz2.38\bin", "", ref DictionaryAllRows);
+
+                foreach (DataGridViewRow row in dgvConfig.Rows) {
+                    switch (row.Cells[Constants.K_ColumnTag].Value.ToString()) {
+                        case Constants.K_GENERATE_LATEX:
+                            row.Cells[Constants.K_ColumnValue].Value = "NO";
+                            break;
+
+                        case Constants.K_EXTRACT_STATIC:
+                            row.Cells[Constants.K_ColumnValue].Value = "YES";
+                            break;
+
+                        case Constants.K_CALLER_GRAPH:
+                            row.Cells[Constants.K_ColumnValue].Value = "YES";
+                            break;
+
+                        case Constants.K_HAVE_DOT:
+                            row.Cells[Constants.K_ColumnValue].Value = "YES";
+                            break;
+
+                        case Constants.K_CALL_GRAPH:
+                            row.Cells[Constants.K_ColumnValue].Value = "YES";
+                            break;
+
+                        case Constants.K_DOT_PATH:
+                            row.Cells[Constants.K_ColumnValue].Value = @"C:\Program Files (x86)\Graphviz2.38\bin";
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
             } 
 
             saveFileDialog1.ShowDialog();          
