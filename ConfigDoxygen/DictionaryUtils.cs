@@ -38,8 +38,9 @@ namespace ConfigDoxygen {
             Int32 j = 0;
             String myCh = String.Empty;
             StringBuilder sb = new StringBuilder();
+            Int32 fistRow = Helper.getFirstRowReadable(TextData);
             foreach (string row in TextData) {
-                if (j > Constants.K_FirstRowReadable) {
+                if (j > fistRow) {
                     myCh = StringExtensions.Left(row, Constants.K_ColumnDescriptionHidden).Trim();
                     if (myCh == Constants.K_CharDescription) {
                         sb = sb.AppendLine(row.Replace(Constants.K_CharDescription, ""));

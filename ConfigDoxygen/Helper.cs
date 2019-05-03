@@ -131,5 +131,18 @@ namespace ConfigDoxygen {
             });
             return dt;
         }
+
+
+        public static Int32 getFirstRowReadable(String[] allText) {
+            String crtlS = "# This tag specifies the encoding used for all characters in the configuration";
+            Int32 i = 0;
+
+            foreach(String s in allText){
+                i++;
+                if (s == crtlS) break;
+            }
+
+            return i - 2;
+        }
     }
 }

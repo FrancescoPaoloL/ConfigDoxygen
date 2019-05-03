@@ -16,7 +16,5 @@ namespace ConfigDoxygen {
         public String pathDoxyFile { get { return prop_pathDoxyFile; } }
         //...
         //define read-only properties -- end
-
-
     }
 }

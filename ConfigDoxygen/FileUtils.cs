@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -114,6 +115,14 @@ namespace ConfigDoxygen {
             //String s = General.GetTextResource("ConfigDoxygen.header.txt");
             StringBuilder sb = new StringBuilder();
             Boolean f = false;
+
+            sb = sb.AppendLine("#This configuration file is modified with ");
+            sb = sb.Append("#");
+            sb = sb.Append(System.AppDomain.CurrentDomain.FriendlyName);
+            sb = sb.Append(" (v. ");
+            sb = sb.Append(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            sb = sb.AppendLine(")");
+            sb = sb.AppendLine();
 
             foreach (KeyValuePair<String, DefinitionTag> entry in dict) {
                 f = Trivia.TestingQuoteValue(entry.Key);

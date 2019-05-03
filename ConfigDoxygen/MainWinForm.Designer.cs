@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.dgvConfig = new System.Windows.Forms.DataGridView();
             this.gboxDescription = new System.Windows.Forms.GroupBox();
@@ -59,14 +59,14 @@
             this.dgvConfig.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvConfig.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConfig.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConfig.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvConfig.GridColor = System.Drawing.Color.Tan;
             this.dgvConfig.Location = new System.Drawing.Point(6, 26);
             this.dgvConfig.Name = "dgvConfig";
@@ -171,7 +171,7 @@
             // btExit
             // 
             this.btExit.Image = ((System.Drawing.Image)(resources.GetObject("btExit.Image")));
-            this.btExit.Location = new System.Drawing.Point(983, 21);
+            this.btExit.Location = new System.Drawing.Point(1021, 21);
             this.btExit.Name = "btExit";
             this.btExit.Size = new System.Drawing.Size(50, 39);
             this.btExit.TabIndex = 3;
@@ -207,7 +207,7 @@
             // btRestore
             // 
             this.btRestore.Image = ((System.Drawing.Image)(resources.GetObject("btRestore.Image")));
-            this.btRestore.Location = new System.Drawing.Point(873, 21);
+            this.btRestore.Location = new System.Drawing.Point(936, 21);
             this.btRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btRestore.Name = "btRestore";
             this.btRestore.Size = new System.Drawing.Size(42, 39);
@@ -219,7 +219,7 @@
             // btCloseConnection
             // 
             this.btCloseConnection.Image = ((System.Drawing.Image)(resources.GetObject("btCloseConnection.Image")));
-            this.btCloseConnection.Location = new System.Drawing.Point(827, 21);
+            this.btCloseConnection.Location = new System.Drawing.Point(890, 21);
             this.btCloseConnection.Margin = new System.Windows.Forms.Padding(2);
             this.btCloseConnection.Name = "btCloseConnection";
             this.btCloseConnection.Size = new System.Drawing.Size(42, 39);
@@ -231,7 +231,7 @@
             // btSave
             // 
             this.btSave.Image = ((System.Drawing.Image)(resources.GetObject("btSave.Image")));
-            this.btSave.Location = new System.Drawing.Point(936, 21);
+            this.btSave.Location = new System.Drawing.Point(827, 22);
             this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(42, 39);

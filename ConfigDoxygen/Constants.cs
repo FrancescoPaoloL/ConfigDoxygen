@@ -290,8 +290,6 @@ namespace ConfigDoxygen {
         public const Int32 WM_NCLBUTTONDOWN = 0xA1;
         public const Int32 HT_CAPTION = 0x2;
 
-        public const Int32 K_FirstRowReadable = 18;
-
         public const Int32 K_ColumnTag = 0;
         public const Int32 K_ColumnValue = 1;
         public const Int32 K_ColumnDescriptionHidden = 2;
