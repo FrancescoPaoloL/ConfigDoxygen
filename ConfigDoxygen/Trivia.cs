@@ -28,8 +28,10 @@ namespace ConfigDoxygen {
         /// <param name="ls2">Represents a list object about combo object.</param>
         /// <param name="ls3">Represents a list object about opendialogbox object.</param>
         /// <param name="ls4">Represents a list object about inputbox object.</param>
+        /// <param name="ls5">Represents a list object about checkboxitem object.</param>
         public static void SetListsInForm(ref List<String> ls1, ref List<String> ls2,
-                                          ref List<String> ls3, ref List<String> ls4) {
+                                          ref List<String> ls3, ref List<String> ls4, 
+                                          ref List<String> ls5) {
             //populate button column
             ls1.Add(Constants.K_ABBREVIATE_BRIEF);
             ls1.Add(Constants.K_ALIASES);
@@ -168,7 +170,7 @@ namespace ConfigDoxygen {
             ls2.Add(Constants.K_EXTRACT_PRIVATE);
             ls2.Add(Constants.K_EXTRACT_STATIC);
             ls2.Add(Constants.K_EXT_LINKS_IN_WINDOW);
-            ls2.Add(Constants.K_FILE_PATTERNS);
+            //ls2.Add(Constants.K_FILE_PATTERNS);
             ls2.Add(Constants.K_FILTER_SOURCE_FILES);
             ls2.Add(Constants.K_FORCE_LOCAL_INCLUDES);
             ls2.Add(Constants.K_FORMULA_FONTSIZE);
@@ -310,6 +312,11 @@ namespace ConfigDoxygen {
             ls4.Add(Constants.K_MATHJAX_RELPATH);                      // --> InputBox.cs
             ls4.Add(Constants.K_SEARCHDATA_FILE);                      // --> InputBox.cs
             ls4.Add(Constants.K_PERL_PATH);                            // --> InputBox.cs
+
+
+
+            //checklistboxitem
+            ls5.Add(Constants.K_FILE_PATTERNS); 
         }
 
         /// <summary>

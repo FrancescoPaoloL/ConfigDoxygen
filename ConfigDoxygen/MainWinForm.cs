@@ -32,6 +32,7 @@ namespace ConfigDoxygen {
 
         List<String> ListOpenDialog = new List<String>();
         List<String> ListOpenTextBox = new List<String>();
+        List<String> ListOpenCheckBoxList = new List<String>();
 
         Dictionary<String, DefinitionTag> DictionaryAllRows = null;
 
@@ -61,7 +62,7 @@ namespace ConfigDoxygen {
         /// which controls if Enter key is pressed.
         /// </summary>
         private void SetElementsInForm() {
-            Trivia.SetListsInForm(ref ListButton, ref ListCombo, ref ListOpenDialog, ref ListOpenTextBox);
+            Trivia.SetListsInForm(ref ListButton, ref ListCombo, ref ListOpenDialog, ref ListOpenTextBox, ref ListOpenCheckBoxList);
 
             gbConfFile.Text = "No Configuration file opened";
             gbConfFile.ForeColor = Color.DarkRed;
@@ -312,6 +313,23 @@ namespace ConfigDoxygen {
                             DictionaryUtils.UpdateCustomValue(myTag, result.Text, myDescription, ref DictionaryAllRows);
                             dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value = result.Text;
                         }
+                    } else if (Trivia.IterateOverList(ListOpenCheckBoxList, myTag)) {
+                        ChkListBox frm = new ChkListBox();
+                        String[] elements = new String[45]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.c++", "*.java", "*.ii", "*.ixx",
+                                                            "*.ipp", "*.i++", "*.inl", "*.idl", "*.ddl", "*.odl", "*.h", "*.hh",
+                                                            "*.hxx", "*.hpp", "*.h++", "*.cs", "*.d", "*.php", "*.php4", "*.php5",
+                                                            "*.phtml", "*.inc", "*.m", "*.markdown", "*.md", "*.mm", "*.dox", "*.py",
+                                                            "*.pyw", "*.f90", "*.f95", "*.f03", "*.f08", "*.f", "*.for", "*.tcl",
+                                                            "*.vhd", "*.vhdl", "*.ucf", "*.qsf", "*.ice"};
+                        String content = dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value.ToString();
+                        //*.c \
+                        var checkedElements = content.Split(new char[] {'\\'}, StringSplitOptions.RemoveEmptyEntries);
+                        frm.checkedValues = checkedElements;
+                        frm.values = elements;
+
+
+
+                        frm.Show();
                     }
                     dgvConfig.ReadOnly = true;
                 }

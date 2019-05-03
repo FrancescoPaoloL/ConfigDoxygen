@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.dgvConfig = new System.Windows.Forms.DataGridView();
             this.gboxDescription = new System.Windows.Forms.GroupBox();
@@ -44,9 +44,9 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btNewFile = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btLoad = new System.Windows.Forms.Button();
             this.lklbAbout = new System.Windows.Forms.LinkLabel();
             this.lbInfoVersion = new System.Windows.Forms.Label();
-            this.btLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfig)).BeginInit();
             this.gboxDescription.SuspendLayout();
             this.gbConfFile.SuspendLayout();
@@ -59,14 +59,14 @@
             this.dgvConfig.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvConfig.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConfig.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConfig.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvConfig.GridColor = System.Drawing.Color.Tan;
             this.dgvConfig.Location = new System.Drawing.Point(6, 26);
             this.dgvConfig.Name = "dgvConfig";
@@ -256,6 +256,18 @@
             this.btNewFile.UseVisualStyleBackColor = true;
             this.btNewFile.Click += new System.EventHandler(this.btNewFile_Click);
             // 
+            // btLoad
+            // 
+            this.btLoad.Image = ((System.Drawing.Image)(resources.GetObject("btLoad.Image")));
+            this.btLoad.Location = new System.Drawing.Point(781, 21);
+            this.btLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.btLoad.Name = "btLoad";
+            this.btLoad.Size = new System.Drawing.Size(42, 39);
+            this.btLoad.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.btLoad, "Load configuration file");
+            this.btLoad.UseVisualStyleBackColor = true;
+            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
+            // 
             // lklbAbout
             // 
             this.lklbAbout.AutoSize = true;
@@ -280,18 +292,6 @@
             this.lbInfoVersion.Size = new System.Drawing.Size(46, 18);
             this.lbInfoVersion.TabIndex = 13;
             this.lbInfoVersion.Text = "label2";
-            // 
-            // btLoad
-            // 
-            this.btLoad.Image = ((System.Drawing.Image)(resources.GetObject("btLoad.Image")));
-            this.btLoad.Location = new System.Drawing.Point(781, 21);
-            this.btLoad.Margin = new System.Windows.Forms.Padding(2);
-            this.btLoad.Name = "btLoad";
-            this.btLoad.Size = new System.Drawing.Size(42, 39);
-            this.btLoad.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.btLoad, "Load configuration file");
-            this.btLoad.UseVisualStyleBackColor = true;
-            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
             // 
             // FrmMain
             // 

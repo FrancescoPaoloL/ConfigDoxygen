@@ -62,6 +62,12 @@
       <Link>frmAbout.designer.cs</Link>
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChkListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChkListBox.Designer.cs">
+      <DependentUpon>ChkListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="DefinitionTAG.cs" />
     <Compile Include="DictionaryUtils.cs" />
@@ -86,6 +92,9 @@
     <EmbeddedResource Include="..\..\..\aboutME\frmAbout.resx">
       <Link>frmAbout.resx</Link>
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChkListBox.resx">
+      <DependentUpon>ChkListBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
