@@ -24,11 +24,11 @@ namespace ConfigDoxygen {
             chkElements.Items.AddRange(values);
 
             //Array1.Intersect(Array2);
+            //var results = array1.Intersect(array2, StringComparer.OrdinalIgnoreCase);
 
-### doesn't work!
-            var intersect = values.Intersect(checkedValues).ToArray();
+            var intersect = values.Intersect(checkedValues, StringComparer.OrdinalIgnoreCase).ToArray();
             // Write intersection to screen.
-            Int32 i = -1;
+            Int32 i = 0;
             foreach(var s in intersect){
                 chkElements.SetItemChecked(i++, true);
             }

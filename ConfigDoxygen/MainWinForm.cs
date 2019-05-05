@@ -23,6 +23,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 [assembly: CLSCompliant(true)]
 namespace ConfigDoxygen {
@@ -321,14 +322,16 @@ namespace ConfigDoxygen {
                                                             "*.phtml", "*.inc", "*.m", "*.markdown", "*.md", "*.mm", "*.dox", "*.py",
                                                             "*.pyw", "*.f90", "*.f95", "*.f03", "*.f08", "*.f", "*.for", "*.tcl",
                                                             "*.vhd", "*.vhdl", "*.ucf", "*.qsf", "*.ice"};
-                        String content = dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value.ToString();
-                        //*.c \
-                        var checkedElements = content.Split(new char[] {'\\'}, StringSplitOptions.RemoveEmptyEntries);
+                        String content = dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value.ToString().Trim();
+                        String[] checkedElements = content.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+                        //remove all spaces in a String array
+                        checkedElements = (from t in checkedElements
+                                           select t.Trim()).ToArray();
+
                         frm.checkedValues = checkedElements;
                         frm.values = elements;
-
-
-
                         frm.Show();
                     }
                     dgvConfig.ReadOnly = true;
