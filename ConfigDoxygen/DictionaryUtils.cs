@@ -35,19 +35,15 @@ namespace ConfigDoxygen {
         /// <returns>A dictionary loaded of array strings.</returns>
         public static Dictionary<String, DefinitionTag> SplitDataInDictionary(String[] TextData) {
             Dictionary<String, DefinitionTag> myRet = new Dictionary<String, DefinitionTag>();
-            Int32 j = 0;
+            Int32 nrRow = 0;
             String myCh = String.Empty;
             StringBuilder sb = new StringBuilder();
             Int32 fistRow = Helper.getFirstRowReadable(TextData);
             foreach (String row in TextData) {
-                if (j > fistRow) {
+                if (nrRow > fistRow) {
                     myCh = StringExtensions.Left(row, Constants.K_ColumnDescriptionHidden).Trim();
                     if (myCh == Constants.K_CharDescription) {
-
                         sb = sb.AppendLine(Helper.replaceFirst(row, Constants.K_CharDescription, ""));
-
-                        //sb = sb.AppendLine(row.Replace(Constants.K_CharDescription, "", 1));
-                    
                     } else if (myCh == Constants.K_CharDescriptionAlt) {
                         //NOP
                     } else if (myCh.Length > 0) {
@@ -56,11 +52,20 @@ namespace ConfigDoxygen {
                         String myDescription = sb.ToString().Trim();
 
                         DefinitionTag def = new DefinitionTag();
-                        def.Value = tokens[1].ToString().Replace("\"", "");
+                        
+                        String tmpTag = tokens[0].ToString();
+                        
+                        switch (tmpTag) {
+                            case Constants.K_FILE_PATTERNS:
+#from 'x' line read until find '#' and store into value separated by '\'
 
-                        //if (myDescription.Length == 0) {
-                        //    break;
-                        //}
+                                string line = File.ReadLines(FileName).Skip(14).Take(1).First();
+                                def.Value = tokens[1].ToString().Replace("\"", "");
+                                break;
+                            default:
+                                def.Value = tokens[1].ToString().Replace("\"", "");
+                                break;
+                        }
 
                         def.Description = myDescription;
                         myRet.Add(tokens[0], def);
@@ -69,7 +74,7 @@ namespace ConfigDoxygen {
                         //NOP
                     }
                 }
-                j++;
+                nrRow++;
             }
 
             return myRet;

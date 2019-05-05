@@ -323,8 +323,7 @@ namespace ConfigDoxygen {
                                                             "*.pyw", "*.f90", "*.f95", "*.f03", "*.f08", "*.f", "*.for", "*.tcl",
                                                             "*.vhd", "*.vhdl", "*.ucf", "*.qsf", "*.ice"};
                         String content = dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value.ToString().Trim();
-                        String[] checkedElements = content.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
-
+                        String[] checkedElements = content.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
 
                         //remove all spaces in a String array
                         checkedElements = (from t in checkedElements
