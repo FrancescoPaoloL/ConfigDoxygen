@@ -316,7 +316,9 @@ namespace ConfigDoxygen {
                         }
                     } else if (Trivia.IterateOverList(ListOpenCheckBoxList, myTag)) {
                         ChkListBox frm = new ChkListBox();
-                        String[] elements = new String[45]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.c++", "*.java", "*.ii", "*.ixx",
+
+                        //add new prefixes here
+                        String[] prefixes = new String[45]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.c++", "*.java", "*.ii", "*.ixx",
                                                             "*.ipp", "*.i++", "*.inl", "*.idl", "*.ddl", "*.odl", "*.h", "*.hh",
                                                             "*.hxx", "*.hpp", "*.h++", "*.cs", "*.d", "*.php", "*.php4", "*.php5",
                                                             "*.phtml", "*.inc", "*.m", "*.markdown", "*.md", "*.mm", "*.dox", "*.py",
@@ -330,8 +332,10 @@ namespace ConfigDoxygen {
                                            select t.Trim()).ToArray();
 
                         frm.checkedValues = checkedElements;
-                        frm.values = elements;
-                        frm.Show();
+                        frm.values = prefixes;
+                        frm.ShowDialog();
+
+                        if (!String.IsNullOrEmpty(frm.strRet)) dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value = frm.strRet;
                     }
                     dgvConfig.ReadOnly = true;
                 }

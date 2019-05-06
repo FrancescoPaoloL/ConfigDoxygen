@@ -27,6 +27,8 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.chkElements = new System.Windows.Forms.CheckedListBox();
+            this.rbSelectAll = new System.Windows.Forms.RadioButton();
+            this.rbUnselectAll = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // labelPrompt
@@ -35,7 +37,7 @@
             this.labelPrompt.ForeColor = System.Drawing.Color.DarkGreen;
             this.labelPrompt.Location = new System.Drawing.Point(12, 9);
             this.labelPrompt.Name = "labelPrompt";
-            this.labelPrompt.Size = new System.Drawing.Size(551, 22);
+            this.labelPrompt.Size = new System.Drawing.Size(831, 22);
             this.labelPrompt.TabIndex = 4;
             this.labelPrompt.Text = "prompt";
             // 
@@ -79,6 +81,34 @@
             this.chkElements.Size = new System.Drawing.Size(832, 179);
             this.chkElements.TabIndex = 8;
             // 
+            // rbSelectAll
+            // 
+            this.rbSelectAll.AutoSize = true;
+            this.rbSelectAll.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
+            this.rbSelectAll.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.rbSelectAll.Location = new System.Drawing.Point(16, 223);
+            this.rbSelectAll.Name = "rbSelectAll";
+            this.rbSelectAll.Size = new System.Drawing.Size(130, 24);
+            this.rbSelectAll.TabIndex = 9;
+            this.rbSelectAll.TabStop = true;
+            this.rbSelectAll.Text = "Select all";
+            this.rbSelectAll.UseVisualStyleBackColor = true;
+            this.rbSelectAll.Click += new System.EventHandler(this.rbSelectAll_Click);
+            // 
+            // rbUnselectAll
+            // 
+            this.rbUnselectAll.AutoSize = true;
+            this.rbUnselectAll.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
+            this.rbUnselectAll.ForeColor = System.Drawing.Color.Crimson;
+            this.rbUnselectAll.Location = new System.Drawing.Point(163, 223);
+            this.rbUnselectAll.Name = "rbUnselectAll";
+            this.rbUnselectAll.Size = new System.Drawing.Size(150, 24);
+            this.rbUnselectAll.TabIndex = 10;
+            this.rbUnselectAll.TabStop = true;
+            this.rbUnselectAll.Text = "Unselect all";
+            this.rbUnselectAll.UseVisualStyleBackColor = true;
+            this.rbUnselectAll.Click += new System.EventHandler(this.rbUnselectAll_Click);
+            // 
             // ChkListBox
             // 
             this.AcceptButton = this.buttonOK;
@@ -87,6 +117,8 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(855, 262);
             this.ControlBox = false;
+            this.Controls.Add(this.rbUnselectAll);
+            this.Controls.Add(this.rbSelectAll);
             this.Controls.Add(this.chkElements);
             this.Controls.Add(this.labelPrompt);
             this.Controls.Add(this.buttonCancel);
@@ -98,6 +130,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.ChkListBox_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -107,5 +140,7 @@
         protected System.Windows.Forms.Button buttonCancel;
         protected System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.CheckedListBox chkElements;
+        private System.Windows.Forms.RadioButton rbSelectAll;
+        private System.Windows.Forms.RadioButton rbUnselectAll;
     }
 }

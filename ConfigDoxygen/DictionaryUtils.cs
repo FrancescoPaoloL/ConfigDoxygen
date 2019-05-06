@@ -57,10 +57,18 @@ namespace ConfigDoxygen {
                         
                         switch (tmpTag) {
                             case Constants.K_FILE_PATTERNS:
-#from 'x' line read until find '#' and store into value separated by '\'
+                            //...
+                                //from 'x' line read until find '#' and store into value separated by '\'
+                                StringBuilder sbRow = new StringBuilder();
+                                for (Int32 x = nrRow; x <= TextData.Length; x++) {
+                                    String tmp = TextData[x].Replace(Constants.K_FILE_PATTERNS, "")
+                                                            .Replace(Constants.K_CharDivideKeyValue, "").Trim();
+                                    if (StringExtensions.Left(tmp, 1) == Constants.K_CharDescription) break;
 
-                                string line = File.ReadLines(FileName).Skip(14).Take(1).First();
-                                def.Value = tokens[1].ToString().Replace("\"", "");
+                                    sbRow = sbRow.Append(tmp);
+                                }
+
+                                def.Value = sbRow.ToString();
                                 break;
                             default:
                                 def.Value = tokens[1].ToString().Replace("\"", "");
