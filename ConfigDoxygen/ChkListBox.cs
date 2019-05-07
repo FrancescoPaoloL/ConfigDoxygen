@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -33,18 +34,15 @@ namespace ConfigDoxygen {
 
         private void ChkListBox_Load(object sender, EventArgs e) {
             chkElements.Items.AddRange(values);
-            var intersect = values.Intersect(checkedValues, StringComparer.OrdinalIgnoreCase).ToArray();
+            List<String> intersect = values.Intersect(checkedValues, StringComparer.OrdinalIgnoreCase).ToList();
             
             // Write intersection to screen.
-            Int32 i = 0;
-            foreach(var s in intersect){
-### selezionare la vera
-                if (chkElements.Items[i] == s.ToString())
-                    chkElements.SetItemChecked(i, true);
-                i++;
-            }
+            for (int count = 0; count < chkElements.Items.Count; count++) {
+                if (intersect.Contains(chkElements.Items[count].ToString())) {
+                    chkElements.SetItemChecked(count, true);
+                }
+            } 
         }
-
 
         private void setChkValues(Boolean f) {
             for (Int32 i = 0; i < chkElements.Items.Count; i++) {
