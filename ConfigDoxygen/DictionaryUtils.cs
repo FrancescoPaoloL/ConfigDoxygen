@@ -57,6 +57,8 @@ namespace ConfigDoxygen {
                         
                         switch (tmpTag) {
                             case Constants.K_FILE_PATTERNS:
+### create method passing constant
+                            case Constants.K_ABBREVIATE_BRIEF:
                             //...
                                 //from 'x' line read until find '#' and store into value separated by '\'
                                 StringBuilder sbRow = new StringBuilder();

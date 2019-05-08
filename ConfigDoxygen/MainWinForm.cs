@@ -294,6 +294,7 @@ namespace ConfigDoxygen {
                     dgvConfig.ReadOnly = false;
                     dgvConfig.EditMode = DataGridViewEditMode.EditOnEnter;
                 } else {
+                    String prompt = "TAG --> " + myTag;
                     if (Trivia.IterateOverList(ListOpenDialog, myTag)) {
                         String Path = String.Empty;
                         Boolean f = FileUtils.OpenFolder(out Path);
@@ -305,8 +306,7 @@ namespace ConfigDoxygen {
                             dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value = Path;
                         }
                     } else if (Trivia.IterateOverList(ListOpenTextBox, myTag)) {
-                        String prompt = "TAG --> " + myTag;
-                        String title = "";
+                        String title = String.Empty;
                         String content = dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value.ToString();
                         String tip = String.Empty;
                         InputBoxResult result = InputBox.Show(prompt, title, content, tip, new InputBoxValidatingHandler(inputBox_Validating));
@@ -318,7 +318,7 @@ namespace ConfigDoxygen {
                         ChkListBox frm = new ChkListBox();
 
                         //add new prefixes here
-                        String[] prefixes = new String[45]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.c++", "*.java", "*.ii", "*.ixx",
+                        String[] prefixes = new String[46]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.cs", "*.c++", "*.java", "*.ii", "*.ixx",
                                                             "*.ipp", "*.i++", "*.inl", "*.idl", "*.ddl", "*.odl", "*.h", "*.hh",
                                                             "*.hxx", "*.hpp", "*.h++", "*.cs", "*.d", "*.php", "*.php4", "*.php5",
                                                             "*.phtml", "*.inc", "*.m", "*.markdown", "*.md", "*.mm", "*.dox", "*.py",
@@ -330,7 +330,8 @@ namespace ConfigDoxygen {
                         //remove all spaces in a String array
                         checkedElements = (from t in checkedElements
                                            select t.Trim()).ToArray();
-
+                         
+                        frm.prompt = prompt;
                         frm.checkedValues = checkedElements;
                         frm.values = prefixes;
                         frm.ShowDialog();
@@ -568,6 +569,15 @@ namespace ConfigDoxygen {
         /// <param name="e">This contains event info about object</param>
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) {
             // Get file name.
+
+            for (Int32 x = 0; x < dgvConfig.Rows.Count; x++) {
+                String myTag = dgvConfig.Rows[x].Cells[Constants.K_ColumnTag].Value.ToString();
+                String originalValue = dgvConfig[Constants.K_ColumnValue, x].Value.ToString();
+                String myDescription = dgvConfig.Rows[x].Cells[Constants.K_ColumnDescriptionHidden].Value.ToString();
+
+                DictionaryUtils.UpdateCustomValue(myTag, originalValue, myDescription, ref DictionaryAllRows);
+            }
+
             String name = saveFileDialog1.FileName;
             FileUtils.SavingConfFile(name, ref DictionaryAllRows);
         }

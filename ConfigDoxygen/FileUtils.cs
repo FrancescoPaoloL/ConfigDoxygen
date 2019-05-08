@@ -118,16 +118,14 @@ namespace ConfigDoxygen {
 
             sb = sb.AppendLine("#This configuration file is modified with ");
             sb = sb.Append("#");
-            sb = sb.Append(System.AppDomain.CurrentDomain.FriendlyName);
+            sb = sb.Append(AppDomain.CurrentDomain.FriendlyName);
             sb = sb.Append(" (v. ");
             sb = sb.Append(Assembly.GetExecutingAssembly().GetName().Version.ToString());
             sb = sb.AppendLine(")");
             sb = sb.AppendLine();
 
             foreach (KeyValuePair<String, DefinitionTag> entry in dict) {
-                f = Trivia.TestingQuoteValue(entry.Key);
-
-                String[] stringSeparators = new string[] { "\r\n" };
+                String[] stringSeparators = new String[] { "\r\n" };
                 String paddedParam = entry.Value.Description.PadLeft(entry.Value.Description.Length + 1); ;
                 paddedParam = paddedParam.PadLeft(10);
 
@@ -139,6 +137,7 @@ namespace ConfigDoxygen {
                     sb = sb.Append(Environment.NewLine);
                 }
 
+                f = Trivia.TestingQuoteValue(entry.Key);
                 sb = sb.Append(Environment.NewLine);
                 sb = sb.Append(entry.Key);
                 sb = sb.Append(" = ");

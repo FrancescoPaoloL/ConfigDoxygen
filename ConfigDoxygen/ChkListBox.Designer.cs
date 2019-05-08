@@ -23,23 +23,23 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.labelPrompt = new System.Windows.Forms.Label();
+            this.lbPrompt = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.chkElements = new System.Windows.Forms.CheckedListBox();
-            this.rbSelectAll = new System.Windows.Forms.RadioButton();
-            this.rbUnselectAll = new System.Windows.Forms.RadioButton();
+            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // labelPrompt
+            // lbPrompt
             // 
-            this.labelPrompt.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrompt.ForeColor = System.Drawing.Color.DarkGreen;
-            this.labelPrompt.Location = new System.Drawing.Point(12, 9);
-            this.labelPrompt.Name = "labelPrompt";
-            this.labelPrompt.Size = new System.Drawing.Size(831, 22);
-            this.labelPrompt.TabIndex = 4;
-            this.labelPrompt.Text = "prompt";
+            this.lbPrompt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbPrompt.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrompt.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbPrompt.Location = new System.Drawing.Point(12, 9);
+            this.lbPrompt.Name = "lbPrompt";
+            this.lbPrompt.Size = new System.Drawing.Size(831, 22);
+            this.lbPrompt.TabIndex = 4;
+            this.lbPrompt.Text = "prompt";
             // 
             // buttonCancel
             // 
@@ -48,7 +48,7 @@
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.DarkGreen;
-            this.buttonCancel.Location = new System.Drawing.Point(753, 223);
+            this.buttonCancel.Location = new System.Drawing.Point(753, 251);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(90, 27);
             this.buttonCancel.TabIndex = 7;
@@ -61,7 +61,7 @@
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOK.ForeColor = System.Drawing.Color.DarkGreen;
-            this.buttonOK.Location = new System.Drawing.Point(657, 223);
+            this.buttonOK.Location = new System.Drawing.Point(656, 251);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(90, 27);
             this.buttonOK.TabIndex = 6;
@@ -75,39 +75,24 @@
             this.chkElements.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold);
             this.chkElements.ForeColor = System.Drawing.Color.White;
             this.chkElements.FormattingEnabled = true;
-            this.chkElements.Location = new System.Drawing.Point(11, 34);
+            this.chkElements.Location = new System.Drawing.Point(11, 64);
             this.chkElements.MultiColumn = true;
             this.chkElements.Name = "chkElements";
             this.chkElements.Size = new System.Drawing.Size(832, 179);
             this.chkElements.TabIndex = 8;
             // 
-            // rbSelectAll
+            // chkSelectAll
             // 
-            this.rbSelectAll.AutoSize = true;
-            this.rbSelectAll.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
-            this.rbSelectAll.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.rbSelectAll.Location = new System.Drawing.Point(16, 223);
-            this.rbSelectAll.Name = "rbSelectAll";
-            this.rbSelectAll.Size = new System.Drawing.Size(130, 24);
-            this.rbSelectAll.TabIndex = 9;
-            this.rbSelectAll.TabStop = true;
-            this.rbSelectAll.Text = "Select all";
-            this.rbSelectAll.UseVisualStyleBackColor = true;
-            this.rbSelectAll.Click += new System.EventHandler(this.rbSelectAll_Click);
-            // 
-            // rbUnselectAll
-            // 
-            this.rbUnselectAll.AutoSize = true;
-            this.rbUnselectAll.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
-            this.rbUnselectAll.ForeColor = System.Drawing.Color.Crimson;
-            this.rbUnselectAll.Location = new System.Drawing.Point(163, 223);
-            this.rbUnselectAll.Name = "rbUnselectAll";
-            this.rbUnselectAll.Size = new System.Drawing.Size(150, 24);
-            this.rbUnselectAll.TabIndex = 10;
-            this.rbUnselectAll.TabStop = true;
-            this.rbUnselectAll.Text = "Unselect all";
-            this.rbUnselectAll.UseVisualStyleBackColor = true;
-            this.rbUnselectAll.Click += new System.EventHandler(this.rbUnselectAll_Click);
+            this.chkSelectAll.AutoSize = true;
+            this.chkSelectAll.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
+            this.chkSelectAll.ForeColor = System.Drawing.Color.SlateBlue;
+            this.chkSelectAll.Location = new System.Drawing.Point(16, 34);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Size = new System.Drawing.Size(131, 24);
+            this.chkSelectAll.TabIndex = 10;
+            this.chkSelectAll.Text = "Select All";
+            this.chkSelectAll.UseVisualStyleBackColor = true;
+            this.chkSelectAll.Click += new System.EventHandler(this.chkSelectAll_Click);
             // 
             // ChkListBox
             // 
@@ -115,12 +100,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(855, 262);
+            this.ClientSize = new System.Drawing.Size(855, 290);
             this.ControlBox = false;
-            this.Controls.Add(this.rbUnselectAll);
-            this.Controls.Add(this.rbSelectAll);
+            this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.chkElements);
-            this.Controls.Add(this.labelPrompt);
+            this.Controls.Add(this.lbPrompt);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -136,11 +120,10 @@
 
         #endregion
 
-        protected System.Windows.Forms.Label labelPrompt;
+        protected System.Windows.Forms.Label lbPrompt;
         protected System.Windows.Forms.Button buttonCancel;
         protected System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.CheckedListBox chkElements;
-        private System.Windows.Forms.RadioButton rbSelectAll;
-        private System.Windows.Forms.RadioButton rbUnselectAll;
+        private System.Windows.Forms.CheckBox chkSelectAll;
     }
 }
