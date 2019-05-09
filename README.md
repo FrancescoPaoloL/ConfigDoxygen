@@ -2,6 +2,9 @@
 
 An humble GUI front-end for editing configure doxygen files. It's very simple and fast and it was implemented using C# 6.0 under Microsoft .NET Framework 4.6.01055.
 
+DISCLAIMER:
+    *This is a RC version. So -- at the moment -- there are yet many bugs to be fixed!* 
+
 ## Built With
 
 * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://visualstudio.microsoft.com/vs/older-downloads/)
