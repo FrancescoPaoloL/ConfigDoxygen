@@ -12,7 +12,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ConfigDoxygen {
@@ -310,8 +309,6 @@ namespace ConfigDoxygen {
             ls4.Add(Constants.K_MATHJAX_RELPATH);                      // --> InputBox.cs
             ls4.Add(Constants.K_SEARCHDATA_FILE);                      // --> InputBox.cs
             ls4.Add(Constants.K_PERL_PATH);                            // --> InputBox.cs
-
-
 
             //checklistboxitem
             ls5.Add(Constants.K_FILE_PATTERNS);

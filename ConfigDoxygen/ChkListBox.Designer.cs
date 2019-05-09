@@ -28,6 +28,8 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.chkElements = new System.Windows.Forms.CheckedListBox();
             this.chkSelectAll = new System.Windows.Forms.CheckBox();
+            this.txtNewTAG = new System.Windows.Forms.TextBox();
+            this.btAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbPrompt
@@ -79,6 +81,7 @@
             this.chkElements.MultiColumn = true;
             this.chkElements.Name = "chkElements";
             this.chkElements.Size = new System.Drawing.Size(832, 179);
+            this.chkElements.Sorted = true;
             this.chkElements.TabIndex = 8;
             // 
             // chkSelectAll
@@ -86,13 +89,35 @@
             this.chkSelectAll.AutoSize = true;
             this.chkSelectAll.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
             this.chkSelectAll.ForeColor = System.Drawing.Color.SlateBlue;
-            this.chkSelectAll.Location = new System.Drawing.Point(16, 34);
+            this.chkSelectAll.Location = new System.Drawing.Point(656, 34);
             this.chkSelectAll.Name = "chkSelectAll";
             this.chkSelectAll.Size = new System.Drawing.Size(131, 24);
             this.chkSelectAll.TabIndex = 10;
             this.chkSelectAll.Text = "Select All";
             this.chkSelectAll.UseVisualStyleBackColor = true;
             this.chkSelectAll.Click += new System.EventHandler(this.chkSelectAll_Click);
+            // 
+            // txtNewTAG
+            // 
+            this.txtNewTAG.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtNewTAG.Location = new System.Drawing.Point(16, 34);
+            this.txtNewTAG.Name = "txtNewTAG";
+            this.txtNewTAG.Size = new System.Drawing.Size(401, 26);
+            this.txtNewTAG.TabIndex = 11;
+            // 
+            // btAdd
+            // 
+            this.btAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btAdd.CausesValidation = false;
+            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdd.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btAdd.Location = new System.Drawing.Point(423, 33);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(90, 27);
+            this.btAdd.TabIndex = 12;
+            this.btAdd.Text = "Add";
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // ChkListBox
             // 
@@ -102,6 +127,8 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(855, 290);
             this.ControlBox = false;
+            this.Controls.Add(this.btAdd);
+            this.Controls.Add(this.txtNewTAG);
             this.Controls.Add(this.chkSelectAll);
             this.Controls.Add(this.chkElements);
             this.Controls.Add(this.lbPrompt);
@@ -125,5 +152,7 @@
         protected System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.CheckedListBox chkElements;
         private System.Windows.Forms.CheckBox chkSelectAll;
+        private System.Windows.Forms.TextBox txtNewTAG;
+        protected System.Windows.Forms.Button btAdd;
     }
 }

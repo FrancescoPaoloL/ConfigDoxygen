@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ConfigDoxygen {
     public partial class ChkListBox : Form {
-        public String[] values { get; set; }
+        //public String[] values { get; set; }
         public String[] checkedValues { get; set; }
         public String strRet { get; set; }
         public String prompt { get; set; }
@@ -56,14 +56,16 @@ namespace ConfigDoxygen {
         /// <param name="e">This contains event info about object</param>
         private void ChkListBox_Load(object sender, EventArgs e) {
             lbPrompt.Text = prompt;
-            chkElements.Items.AddRange(values);
-            List<String> intersect = values.Intersect(checkedValues, StringComparer.OrdinalIgnoreCase).ToList();
+            //chkElements.Items.AddRange(values);
+            chkElements.Items.AddRange(checkedValues);
+            
+            //List<String> intersect = values.Intersect(checkedValues, StringComparer.OrdinalIgnoreCase).ToList();
             
             // Write intersection to screen.
             for (Int32 count = 0; count < chkElements.Items.Count; count++) {
-                if (intersect.Contains(chkElements.Items[count].ToString())) {
+                //if (intersect.Contains(chkElements.Items[count].ToString())) {
                     chkElements.SetItemChecked(count, true);
-                }
+                //}
             } 
         }
 
@@ -89,6 +91,21 @@ namespace ConfigDoxygen {
             } else {
                 chkSelectAll.Text = "Select all";
                 setChkValues(false);
+            }
+        }
+
+
+        /// <summary>
+        /// Add new tag in cheked list
+        /// </summary>
+        /// <param name="sender">Object that is an object type</param>
+        /// <param name="e">This contains event info about object</param>
+        private void btAdd_Click(object sender, EventArgs e) {
+            String s = txtNewTAG.Text.Trim();
+
+            DialogResult dialogResult = MessageBox.Show("Do you want to add this tag?" , "New tag to insert", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes) {
+                chkElements.Items.Insert(chkElements.Items.Count, s);
             }
         }
     }
