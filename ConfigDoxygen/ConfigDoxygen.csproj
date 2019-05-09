@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="doxygen.ico" />
+    <Content Include="Licence.txt" />
     <Content Include="ZZZ_TODO.txt" />
     <None Include="Resources\header.txt" />
     <Content Include="Docs\TODO.txt" />

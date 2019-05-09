@@ -1,5 +1,4 @@
-﻿/*
-ConfigDoxyGen - An humble GUI front-end for editing configure doxygen files.
+﻿ConfigDoxyGen
 Copyright (c) 2019 Francesco Paolo Lezza (francescoprogrammer.com)
 
 This program is free software: you can redistribute it and/or modify
@@ -13,22 +12,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*/
-
-using System;
-
-namespace ConfigDoxygen {
-    /// <summary>
-    /// A class which represents the informations
-    /// about doxygen config file.
-    /// The "Description" is just a comment, an explain
-    /// about what a particular tag means.
-    /// </summary>
-    public class DefinitionTag {
-        public String Tag { get; set; }
-        public String Value { get; set; }
-        public String Description { get; set; }
-    }
-}
+along with this program. If not, see <http://www.gnu.org/licenses/>.
