@@ -33,7 +33,6 @@ namespace ConfigDoxygen {
                                           ref List<String> ls3, ref List<String> ls4, 
                                           ref List<String> ls5) {
             //populate button column
-            ls1.Add(Constants.K_ABBREVIATE_BRIEF);
             ls1.Add(Constants.K_ALIASES);
             ls1.Add(Constants.K_CHM_FILE);
             ls1.Add(Constants.K_CHM_INDEX_ENCODING);
@@ -170,7 +169,6 @@ namespace ConfigDoxygen {
             ls2.Add(Constants.K_EXTRACT_PRIVATE);
             ls2.Add(Constants.K_EXTRACT_STATIC);
             ls2.Add(Constants.K_EXT_LINKS_IN_WINDOW);
-            //ls2.Add(Constants.K_FILE_PATTERNS);
             ls2.Add(Constants.K_FILTER_SOURCE_FILES);
             ls2.Add(Constants.K_FORCE_LOCAL_INCLUDES);
             ls2.Add(Constants.K_FORMULA_FONTSIZE);
@@ -316,7 +314,8 @@ namespace ConfigDoxygen {
 
 
             //checklistboxitem
-            ls5.Add(Constants.K_FILE_PATTERNS); 
+            ls5.Add(Constants.K_FILE_PATTERNS);
+            ls5.Add(Constants.K_ABBREVIATE_BRIEF);
         }
 
         /// <summary>

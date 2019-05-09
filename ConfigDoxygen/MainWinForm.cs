@@ -20,10 +20,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Linq;
 
 [assembly: CLSCompliant(true)]
 namespace ConfigDoxygen {
@@ -318,12 +318,12 @@ namespace ConfigDoxygen {
                         ChkListBox frm = new ChkListBox();
 
                         //add new prefixes here
-                        String[] prefixes = new String[46]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.cs", "*.c++", "*.java", "*.ii", "*.ixx",
-                                                            "*.ipp", "*.i++", "*.inl", "*.idl", "*.ddl", "*.odl", "*.h", "*.hh",
-                                                            "*.hxx", "*.hpp", "*.h++", "*.cs", "*.d", "*.php", "*.php4", "*.php5",
-                                                            "*.phtml", "*.inc", "*.m", "*.markdown", "*.md", "*.mm", "*.dox", "*.py",
-                                                            "*.pyw", "*.f90", "*.f95", "*.f03", "*.f08", "*.f", "*.for", "*.tcl",
-                                                            "*.vhd", "*.vhdl", "*.ucf", "*.qsf", "*.ice"};
+                        String[] defaultValues = new String[46]{ "*.c", "*.cc", "*.cxx", "*.cpp", "*.cs", "*.c++", "*.java", "*.ii", "*.ixx",
+                                                                 "*.ipp", "*.i++", "*.inl", "*.idl", "*.ddl", "*.odl", "*.h", "*.hh",
+                                                                 "*.hxx", "*.hpp", "*.h++", "*.cs", "*.d", "*.php", "*.php4", "*.php5",
+                                                                 "*.phtml", "*.inc", "*.m", "*.markdown", "*.md", "*.mm", "*.dox", "*.py",
+                                                                 "*.pyw", "*.f90", "*.f95", "*.f03", "*.f08", "*.f", "*.for", "*.tcl",
+                                                                 "*.vhd", "*.vhdl", "*.ucf", "*.qsf", "*.ice"};
                         String content = dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value.ToString().Trim();
                         String[] checkedElements = content.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -333,7 +333,7 @@ namespace ConfigDoxygen {
                          
                         frm.prompt = prompt;
                         frm.checkedValues = checkedElements;
-                        frm.values = prefixes;
+                        frm.values = defaultValues;
                         frm.ShowDialog();
 
                         if (!String.IsNullOrEmpty(frm.strRet)) dgvConfig[Constants.K_ColumnValue, e.RowIndex].Value = frm.strRet;

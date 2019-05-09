@@ -54,23 +54,13 @@ namespace ConfigDoxygen {
                         DefinitionTag def = new DefinitionTag();
                         
                         String tmpTag = tokens[0].ToString();
-                        
+
                         switch (tmpTag) {
                             case Constants.K_FILE_PATTERNS:
-### create method passing constant
+                                def.Value = makeMultiValuesString(Constants.K_FILE_PATTERNS, nrRow, TextData);
+                                break;
                             case Constants.K_ABBREVIATE_BRIEF:
-                            //...
-                                //from 'x' line read until find '#' and store into value separated by '\'
-                                StringBuilder sbRow = new StringBuilder();
-                                for (Int32 x = nrRow; x <= TextData.Length; x++) {
-                                    String tmp = TextData[x].Replace(Constants.K_FILE_PATTERNS, "")
-                                                            .Replace(Constants.K_CharDivideKeyValue, "").Trim();
-                                    if (StringExtensions.Left(tmp, 1) == Constants.K_CharDescription) break;
-
-                                    sbRow = sbRow.Append(tmp);
-                                }
-
-                                def.Value = sbRow.ToString();
+                                def.Value = makeMultiValuesString(Constants.K_ABBREVIATE_BRIEF, nrRow, TextData);
                                 break;
                             default:
                                 def.Value = tokens[1].ToString().Replace("\"", "");
@@ -90,6 +80,26 @@ namespace ConfigDoxygen {
             return myRet;
         }
 
+
+        /// <summary>
+        /// This method makes multi values for specific tags.
+        /// </summary>
+        /// <param name="tag">Represents the tag</param>
+        /// <param name="nrRow">Represents the row number</param>
+        /// <param name="TextData">Represent a String array.</param>
+        /// <returns></returns>
+        private static String makeMultiValuesString(String tag, Int32 nrRow, String[] TextData){
+            StringBuilder sbRow = new StringBuilder();
+            for (Int32 x = nrRow; x <= TextData.Length; x++) {
+                String tmp = TextData[x].Replace(tag, "")
+                                        .Replace(Constants.K_CharDivideKeyValue, "").Trim();
+                if (StringExtensions.Left(tmp, 1) == Constants.K_CharDescription) break;
+
+                sbRow = sbRow.Append(tmp);
+            }
+
+            return sbRow.ToString();
+        }
 
         /// <summary>
         /// This method does a linq query in a dictionary and returns a IEnumerable data source.
@@ -173,13 +183,13 @@ namespace ConfigDoxygen {
         /// <param name="Tag"></param>
         /// <param name="Dictionary"></param>
         /// <returns></returns>
-        public static String GetValueXTag(String Tag, Dictionary<String, DefinitionTag> Dictionary) {
-            foreach (KeyValuePair<String, DefinitionTag> entry in Dictionary) {
-                if (entry.Key == Tag) {
-                    return entry.Value.Value.ToString(); ;
-                }
-            }
-            return "";
-        }
+        //public static String GetValueXTag(String Tag, Dictionary<String, DefinitionTag> Dictionary) {
+        //    foreach (KeyValuePair<String, DefinitionTag> entry in Dictionary) {
+        //        if (entry.Key == Tag) {
+        //            return entry.Value.Value.ToString(); ;
+        //        }
+        //    }
+        //    return "";
+        //}
     }
 }
