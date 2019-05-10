@@ -10,10 +10,6 @@ DISCLAIMER:
 * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 
-## Contributing
-
-Work in progress...
-
 ## Versioning
 
 I use (obviously) [git](https://git-scm.com/) for versioning. For the versions available, see the [tags on this repository](https://git-scm.com/downloads). 
