@@ -3,7 +3,7 @@
 An humble GUI front-end for editing configure doxygen files. It's very simple and fast and it was implemented using C# 6.0 under Microsoft .NET Framework 4.6.01055.
 
 DISCLAIMER:
-    *This is a RC version. So -- at the moment -- there are yet many bugs to be fixed!* 
+    *This is a RC version.
 
 ## Built With
 
@@ -22,7 +22,3 @@ I use (obviously) [git](https://git-scm.com/) for versioning. For the versions a
 ## License
 
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments
-
-My deep gratitude and thanks to my fiancee V. for their immense patience and support for this little project and others.
