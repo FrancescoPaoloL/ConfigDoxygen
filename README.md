@@ -6,11 +6,6 @@ An humble GUI front-end for editing configure doxygen files. It's very simple an
 
 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://visualstudio.microsoft.com/vs/older-downloads/)
 
-## Author
-
-**Francesco Paolo Lezza** - *Initial work* - [francescoprogrammer.com](https://francescoprogrammer.com/)
-
-
 ## License
 
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
