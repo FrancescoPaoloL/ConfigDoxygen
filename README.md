@@ -1,6 +1,7 @@
-# ConfigDoxygen
+# ConfigDoxygen ⛔️ DEPRECATED
 
 An humble GUI front-end for editing configure doxygen files. It's very simple and fast and it was implemented using C# 6.0 under Microsoft .NET Framework 4.6.01055.
+This is no longer supported!
 
 ## Built With
 
